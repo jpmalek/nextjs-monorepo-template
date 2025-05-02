@@ -1,0 +1,8 @@
+{
+  "changelog": ["@changesets/changelog-github", { "repo": "your-org/your-repo" }],
+  "commit": false,
+  "linked": [],
+  "access": "public",
+  "baseBranch": "production",
+  "updateInternalDependencies": "patch"
+}
