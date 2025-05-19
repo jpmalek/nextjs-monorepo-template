@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    command: pnpm dev:web
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3001/api/hello
+  api:
+    build: .
+    command: pnpm dev:api
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/app
+    environment:
+      HELLO_MESSAGE: hello world
+      PORT: 3001
