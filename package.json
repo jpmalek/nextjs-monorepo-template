@@ -7,13 +7,19 @@
     "dev:web": "pnpm --filter web dev",
     "dev:api": "pnpm --filter api dev",
     "prepare": "husky install",
-    "release": "changeset version && changeset publish"
+    "release": "changeset version && changeset publish",
+    "lint": "eslint \"packages/**/*.{ts,tsx}\"",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
     "@changesets/changelog-github": "^0.4.2",
     "@commitlint/cli": "^18.0.0",
     "@commitlint/config-conventional": "^18.0.0",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "vitest": "^1.0.0"
   }
 }
