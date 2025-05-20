@@ -1,0 +1,25 @@
+build
+dist / media
+node_modules
+.DS_Store
+.env
+.next
+.vercel
+
+# Docker
+.docker/
+docker-compose.override.yml
+docker-data/
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Docker Volumes
+docker-volumes/
+postgres-data/
+*.vol
+
+# Docker environment
+.dockerenv
+.env.docker

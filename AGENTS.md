@@ -3,7 +3,7 @@
 1. Objectve: to inform the foundational principles and their associated rules used during development and deployment. 
 2. Rules:
     1. This document is to be updated when improvements or additions to the rules below are found.
-    2. The product is built on a bullet-proof, error-free, high-quality, scaleable, high-performing, very fast, secure, efficient, API-based platform that relies heavily on caching for a snappy user experience. It’s implemented as cost-efficiently as possible.
+    2. The product is built on a error-free, high-quality, scaleable, high-performing, very fast, secure, efficient, API-based platform that relies heavily on caching for a responsive user experience. It’s implemented as cost-efficiently as possible.
     3. The product is built on Vercel, with the Next.js framework, TypeScript, Tailwind, Postgres via Neon, and Redis.
     4. All code is sourced from a single monorepo in Github. 
     5. All code is well documented, clean, consistently formatted, and follows the DRY principle (Don’t Repeat Yourself).

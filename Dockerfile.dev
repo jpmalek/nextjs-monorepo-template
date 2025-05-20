@@ -1,0 +1,48 @@
+FROM node:22.12.0-alpine AS base
+
+# Install dependencies and build tools
+RUN apk add --no-cache \
+    libc6-compat \
+    python3 \
+    py3-setuptools \
+    make \
+    g++ \
+    gcc
+
+# Set Python path for node-gyp
+ENV PYTHON=/usr/bin/python3
+
+# Install pnpm and next globally
+RUN npm install -g pnpm@8.15.4 next
+
+# Set pnpm store directory
+ENV PNPM_HOME=/pnpm-store
+ENV PATH=$PNPM_HOME:$PATH
+RUN mkdir -p $PNPM_HOME
+
+WORKDIR /app
+
+# First copy package files
+COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* ./
+COPY packages/web/package.json ./packages/web/package.json
+
+# Configure pnpm to use our custom store
+RUN pnpm config set store-dir $PNPM_HOME
+
+# Install TypeScript types first to avoid conflicts
+RUN cd packages/web && \
+    pnpm add --save-exact --save-dev @types/react @types/node --store-dir=$PNPM_HOME
+
+# Copy the rest of the application
+COPY . .
+
+# Install all dependencies (root + workspaces)
+RUN pnpm install --no-frozen-lockfile -r --store-dir=$PNPM_HOME && \
+    pnpm store prune --store-dir=$PNPM_HOME
+
+# Set working directory to the web package
+WORKDIR /app/packages/web
+
+EXPOSE 3000
+
+CMD ["pnpm", "dev"]
