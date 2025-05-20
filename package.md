@@ -40,3 +40,4 @@
 - `tailwindcss` (^4): A utility-first CSS framework for rapidly building custom user interfaces.
 - `typescript` (^5.3.3): TypeScript is a language for application scale JavaScript development
 - `vitest` (^1.0.0): Next generation testing framework powered by Vite
+- `clsx` (^2.1.1): A tiny (239B) utility for constructing className strings conditionally.
