@@ -3,11 +3,6 @@
   "name": "nextjs-monorepo",
   "version": "0.0.0",
   "type": "module",
-  "pnpm": {
-    "overrides": {
-      "node-domexception": "^2.0.2"
-    }
-  },
   "workspaces": [
     "packages/*"
   ],
