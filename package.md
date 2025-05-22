@@ -43,3 +43,4 @@
 - `typescript` (^5.8.3): TypeScript is a language for application scale JavaScript development
 - `vitest` (^3.1.4): Next generation testing framework powered by Vite
 - `execa` (^9.5.3): Process execution for humans
+- `commitlint` (^19.8.1): Lint your commit messages
