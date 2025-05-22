@@ -1,4 +1,31 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+CHANGED_PKG_JSON=$(git diff --cached --name-only | grep "package.json" || true)
 
-node scripts/generatePackageDocs.js
+if [ -n "$CHANGED_PKG_JSON" ]; then
+  echo "📦 package.json changed — generating docs..."
+  node scripts/generatePackageDocs.js
+
+  echo "📄 Staging updated package.md files..."
+  # Add all modified package.md files
+  for file in $(git ls-files --modified | grep package.md); do
+    git add "$file"
+  done
+fi
+
+# Run lint check
+pnpm run lint:check
+
+# If lint check fails, exit with error
+if [ $? -ne 0 ]; then
+  echo "❌ Lint check failed. Please fix the linting errors before committing."
+  exit 1
+fi
+
+# Run tests
+pnpm run test
+
+# If tests fail, exit with error
+if [ $? -ne 0 ]; then
+  echo "❌ Tests failed. Please fix the test failures before committing."
+  exit 1
+fi
+
