@@ -8,7 +8,7 @@
 - `dev:api`: `pnpm --filter api dev`
 - `prepare`: `husky install`
 - `release`: `changeset version && changeset publish`
-- `lint`: `eslint "packages/**/*.{ts,tsx}"`
+- `lint`: `eslint "packages/**/*.{ts,tsx}" --max-warnings=0`
 - `lint:check`: `eslint "packages/**/*.{ts,tsx}" --max-warnings=0`
 - `test`: `vitest run`
 
@@ -42,3 +42,5 @@
 - `tailwindcss` (^4.1.7): A utility-first CSS framework for rapidly building custom user interfaces.
 - `typescript` (^5.8.3): TypeScript is a language for application scale JavaScript development
 - `vitest` (^3.1.4): Next generation testing framework powered by Vite
+- `execa` (^9.5.3): Process execution for humans
+- `commitlint` (^19.8.1): Lint your commit messages
