@@ -12,7 +12,6 @@
     "prepare": "husky install",
     "release": "changeset version && changeset publish",
     "lint": "eslint \"packages/**/*.{ts,tsx}\" --max-warnings=0",
-    "lint:check": "eslint \"packages/**/*.{ts,tsx}\" --max-warnings=0",
     "test": "vitest run"
   },
   "dependencies": {
