@@ -54,7 +54,7 @@ jobs:
 
             // Add additional protection for production branch
             if (branch === 'production') {
-              protectionSettings.required_pull_request_reviews.required_approving_review_count = 2;
+              protectionSettings.required_pull_request_reviews.required_approving_review_count = 1;
             }
 
             try {
