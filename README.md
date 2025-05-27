@@ -47,7 +47,7 @@ cd <your-repo>
 8. Click **Add branch protection rule**
 8. Set the name to **production**
 9. Click **Create**
-10. 
+10. create new envs using the setup-envs workflow, change user id if need be, add workflow file to production branch
 
 ### 3. Install Docker and Docker Compose
 This project is configured to use Docker for development and testing in an environment that closely mimics the Vercel production environment on Ubuntu.
