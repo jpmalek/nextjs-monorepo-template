@@ -12,7 +12,7 @@ if [ -n "$CHANGED_PKG_JSON" ]; then
 fi
 
 # Run lint check
-pnpm run lint:check
+pnpm run lint
 
 # If lint check fails, exit with error
 if [ $? -ne 0 ]; then

@@ -1,12 +1,19 @@
 FROM node:22.12.0-alpine AS base
 
 # Install dependencies and build tools
+# `--no-cache` avoids caching and ensures we get the latest package versions
 RUN apk add --no-cache \
+    # Required by node-gyp for native modules like sharp
     libc6-compat \
+    # Required by node-gyp for native modules like sharp
     python3 \
+    # Required by node-gyp for native modules like sharp
     py3-setuptools \
+    # Required by node-gyp for native modules like sharp
     make \
+    # Required by node-gyp for native modules like sharp
     g++ \
+    # Required by node-gyp for native modules like sharp
     gcc
 
 # Set Python path for node-gyp
@@ -15,30 +22,21 @@ ENV PYTHON=/usr/bin/python3
 # Install pnpm and next globally
 RUN npm install -g pnpm@8.15.4 next
 
-# Set pnpm store directory
-ENV PNPM_HOME=/pnpm-store
-ENV PATH=$PNPM_HOME:$PATH
-RUN mkdir -p $PNPM_HOME
-
 WORKDIR /app
 
 # First copy package files
 COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* ./
 COPY packages/web/package.json ./packages/web/package.json
 
-# Configure pnpm to use our custom store
-RUN pnpm config set store-dir $PNPM_HOME
-
-# Install TypeScript types first to avoid conflicts
-RUN cd packages/web && \
-    pnpm add --save-exact --save-dev @types/react @types/node --store-dir=$PNPM_HOME
-
 # Copy the rest of the application
 COPY . .
 
-# Install all dependencies (root + workspaces)
-RUN pnpm install --no-frozen-lockfile -r --store-dir=$PNPM_HOME && \
-    pnpm store prune --store-dir=$PNPM_HOME
+# Install all dependencies (root + workspaces) and TypeScript types
+RUN pnpm install --no-frozen-lockfile -r && \
+    cd packages/web && \
+    pnpm add --save-exact --save-dev @types/react @types/node && \
+    cd /app && \
+    pnpm store prune --store /root/.local/share/pnpm/store
 
 # Set working directory to the web package
 WORKDIR /app/packages/web
