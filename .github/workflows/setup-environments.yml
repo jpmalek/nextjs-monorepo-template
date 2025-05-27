@@ -34,7 +34,7 @@ jobs:
                 wait_timer: 0,
                 reviewers: [{
                   type: 'User',
-                  id: '247720'
+                  id: 247720
                 }]
               });
               console.log('✅ Staging environment created/updated successfully');
@@ -56,7 +56,7 @@ jobs:
                 wait_timer: 0,
                 reviewers: [{
                   type: 'User',
-                  id: '247720'
+                  id: 247720
                 }]
               });
               console.log('✅ Production environment created/updated successfully');
