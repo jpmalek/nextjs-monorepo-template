@@ -2,6 +2,6 @@
   "name": "api",
   "version": "0.0.1",
   "scripts": {
-    "dev": "echo API dev script here"
+    "dev": "next dev"
   }
-}
+} 
