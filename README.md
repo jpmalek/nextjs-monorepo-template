@@ -33,8 +33,10 @@ git clone https://github.com/<your-user>/<your-repo>.git
 cd <your-repo>
 ```
 ### 3. Configure the new repo in Github
-
-1. Go to the new repository on Github and click **Settings**
+Create a Personal Access Token (PAT) with repo scope
+Add it as a repository secret named PAT in your GitHub repository settings (Settings > Secrets > Actions > New repository secret)
+1. 
+Go to the new repository on Github and click **Settings**
 2. VERIFY: 
   - change name of default branch to staging. 
   - delete the main branch
