@@ -40,7 +40,7 @@ Go to the new repository on Github and click **Settings**
 2. VERIFY: 
   - change name of default branch to staging. 
   - delete the main branch
-  - create staging and production environments
+  - create staging and production environments;create new envs using the setup-envs workflow, change user id if need be, add workflow file to production branch, manually trigger workflows
 3. Go to **Branches**
 4. Click **Add branch protection rule**
 5. Set the name to **staging**
@@ -49,7 +49,7 @@ Go to the new repository on Github and click **Settings**
 8. Click **Add branch protection rule**
 8. Set the name to **production**
 9. Click **Create**
-10. create new envs using the setup-envs workflow, change user id if need be, add workflow file to production branch
+10. c
 
 ### 3. Install Docker and Docker Compose
 This project is configured to use Docker for development and testing in an environment that closely mimics the Vercel production environment on Ubuntu.
