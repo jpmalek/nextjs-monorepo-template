@@ -33,30 +33,28 @@ git clone https://github.com/<your-user>/<your-repo>.git
 cd <your-repo>
 ```
 ### 3. Configure the new repo in Github
-Create a Personal Access Token (PAT) with repo scope
-Add it as a repository secret named PAT in your GitHub repository settings (Settings > Secrets > Actions > New repository secret)
-1. 
-Go to the new repository on Github and click **Settings**
-2. VERIFY: 
+1. Create a Personal Access Token (PAT) with repo scope
+2. Add it as a repository secret named PAT in your GitHub repository settings (Settings > Secrets > Actions > New repository secret)
+3. Go to the new repository on Github and click **Settings**
+4. VERIFY: 
   - change name of default branch to staging. 
   - delete the main branch
   - create staging and production environments;create new envs using the setup-envs workflow, change user id if need be, add workflow file to production branch, manually trigger workflows
-3. Go to **Branches**
-4. Click **Add branch protection rule**
-5. Set the name to **staging**
-6. Click **Create**
-7. Go to **Branches**
-8. Click **Add branch protection rule**
-8. Set the name to **production**
-9. Click **Create**
-10. c
+5. Go to **Branches**
+6. Click **Add branch protection rule**
+7. Set the name to **staging**
+8. Click **Create**
+9. Go to **Branches**
+10. Click **Add branch protection rule**
+11. Set the name to **production**
+12. Click **Create**
 
-### 3. Install Docker and Docker Compose
+### 4. Install Docker and Docker Compose
 This project is configured to use Docker for development and testing in an environment that closely mimics the Vercel production environment on Ubuntu.
 
 1. Install Docker and Docker Compose if they are not already installed.
 
-### 4. Build and start the development containers
+### 5. Build and start the development containers
 
 ```bash
 docker-compose up
@@ -64,7 +62,7 @@ docker-compose up
 
 This will start both the web and API services in development mode.
 
-### Development Workflow
+### 6. Development Workflow
 
 The Docker setup includes:
 
@@ -77,31 +75,31 @@ All services use the same Docker image based on Ubuntu 22.04 with Node.js 18 (ma
 
 ## Common Commands
 
-### Start just the web application
+### 7. Start just the web application
 
 ```bash
 docker-compose up web
 ```
 
-### Start just the API server
+### 8. Start just the API server
 
 ```bash
 docker-compose up api
 ```
 
-### Run tests in production-like environment
+### 9. Run tests in production-like environment
 
 ```bash
 docker-compose run test
 ```
 
-### Run lint checks
+### 10. Run lint checks
 
 ```bash
 docker-compose run lint
 ```
 
-### Execute commands in a running container
+### 11. Execute commands in a running container
 
 ```bash
 docker-compose exec web bash
@@ -109,7 +107,7 @@ docker-compose exec web bash
 
 Then run your commands inside the container.
 
-### Build without cache
+### 12. Build without cache
 
 ```bash
 docker-compose build --no-cache
@@ -158,8 +156,9 @@ This Docker environment is designed to closely match the Vercel production envir
 
 This helps ensure that code that works in the development container will also work when deployed to Vercel.
 
-TODO: pick up here. delete test repo # 1
-### 4. Install pnpm and dependencies
+### 13. TODO: pick up here. delete test repo # 1
+
+### 14. Install pnpm and dependencies
 
 1. Install pnpm globally if it is not installed:
 
@@ -180,7 +179,7 @@ pnpm add next react react-dom --filter web
 pnpm add next react react-dom --filter api
 ```
 
-### 5. Create environment files
+### 15. Create environment files
 
 Create `.env.local` files in both packages:
 
@@ -200,7 +199,7 @@ PORT=3001
 NEXT_PUBLIC_API_URL=http://localhost:3001/api/hello
 ```
 
-### 6. Add a hello world route
+### 16. Add a hello world route
 
 Inside `packages/api`, create `pages/api/hello.ts` with the following code:
 
@@ -210,7 +209,7 @@ export default function handler(req: any, res: any) {
 }
 ```
 
-### 7. Display the message in the web app
+### 17. Display the message in the web app
 
 Update `packages/web/pages/index.tsx`:
 
@@ -230,7 +229,7 @@ export default function Home() {
 }
 ```
 
-### 8. Run locally
+### 18. Run locally
 
 Start both projects in separate terminals:
 
@@ -241,7 +240,7 @@ pnpm dev:web
 
 Visit `http://localhost:3000` and you should see `hello world` displayed.
 
-### 9. Use Docker for local development
+### 19. Use Docker for local development
 
 1. Ensure you have Docker and Docker Compose installed.
 2. Build the development containers:
@@ -258,7 +257,7 @@ docker compose up
 
 This runs both the `web` and `api` packages inside Docker containers. The web app will be available at `http://localhost:3000` and will fetch data from the API container at `http://localhost:3001`.
 
-### 10. Create Vercel projects
+### 20. Create Vercel projects
 
 1. Create **two** Vercel projects, one for `packages/web` and one for `packages/api`.
 2. When connecting each project to GitHub, set the **Root Directory** to the corresponding package (`packages/web` or `packages/api`).
