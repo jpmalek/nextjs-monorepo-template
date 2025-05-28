@@ -1,7 +1,9 @@
 # nextjs-monorepo-template
 
 Hi 2 This is a production-ready monorepo setup using Next.js, Changesets, Vercel, and GitHub Actions for CI/CD. Each package in packages/ is independently versioned and deployed.
-TODO: to update node version, update .nvmrc and CI will follow. npnm version is handled already by CI and tracks with package.json `packageManager`
+TODO: 
+ - to update node version, update .nvmrc and CI will follow. npnm version is handled already by CI and tracks with package.json `packageManager`
+ - as of 5/28/2025 CI run takes 1m in staging. 
 
 This repository provides a minimal monorepo setup for Next.js applications. It uses pnpm workspaces, Changesets, and Vercel for deployment. Each package under `packages/` is versioned and deployed independently.
 
