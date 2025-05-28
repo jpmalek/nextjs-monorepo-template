@@ -1,7 +1,7 @@
 name: Setup Environments
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # This is used to manually trigger the workflow. This workflow doesn't automatically run.
 
 # Add necessary permissions
 permissions:
