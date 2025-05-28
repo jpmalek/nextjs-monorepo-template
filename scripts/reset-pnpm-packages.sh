@@ -8,9 +8,6 @@ rm pnpm-lock.yaml
 # Clean pnpm store
 echo "Cleaning pnpm store..."
 pnpm store prune
-# @tailwindcss/oxide - Used by Tailwind CSS v3+ for faster builds
-# esbuild - A fast JavaScript bundler
-# sharp - Image processing library used by Next.js
 echo "Approving builds..."
 pnpm approve-builds 
 echo "Installing dependencies..."

@@ -26,19 +26,19 @@
 - `@changesets/cli` (^2.29.4): Organise your package versioning and publishing to make both contributors and maintainers happy
 - `@commitlint/cli` (^19.8.1): Lint your commit messages
 - `@commitlint/config-conventional` (^19.8.1): Shareable commitlint config enforcing conventional commits
-- `@tailwindcss/postcss` (^4.1.7): PostCSS plugin for Tailwind CSS, a utility-first CSS framework for rapidly building custom user interfaces
-- `@types/node` (^22.15.20): TypeScript definitions for node
-- `@types/react` (^19.1.4): TypeScript definitions for react
+- `@tailwindcss/postcss` (^4.1.8): PostCSS plugin for Tailwind CSS, a utility-first CSS framework for rapidly building custom user interfaces
+- `@types/node` (^22.15.24): TypeScript definitions for node
+- `@types/react` (^19.1.6): TypeScript definitions for react
 - `@types/react-dom` (^19.1.5): TypeScript definitions for react-dom
-- `@typescript-eslint/eslint-plugin` (^8.32.1): TypeScript plugin for ESLint
-- `@typescript-eslint/parser` (^8.32.1): An ESLint custom parser which leverages TypeScript ESTree
+- `@typescript-eslint/eslint-plugin` (^8.33.0): TypeScript plugin for ESLint
+- `@typescript-eslint/parser` (^8.33.0): An ESLint custom parser which leverages TypeScript ESTree
 - `clsx` (^2.1.1): A tiny (239B) utility for constructing className strings conditionally.
 - `eslint` (^9.27.0): An AST-based pattern checker for JavaScript.
+- `execa` (^9.6.0): Process execution for humans
 - `fast-glob` (^3.3.3): It's a very fast and efficient glob library for Node.js
 - `husky` (^9.1.7): Modern native Git hooks
 - `node-fetch` (^3.3.2): A light-weight module that brings Fetch API to node.js
 - `pnpm` (^10.11.0): Fast, disk space efficient package manager
-- `tailwindcss` (^4.1.7): A utility-first CSS framework for rapidly building custom user interfaces.
+- `tailwindcss` (^4.1.8): A utility-first CSS framework for rapidly building custom user interfaces.
 - `typescript` (^5.8.3): TypeScript is a language for application scale JavaScript development
 - `vitest` (^3.1.4): Next generation testing framework powered by Vite
-- `execa` (^9.5.3): Process execution for humans
