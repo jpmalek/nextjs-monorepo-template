@@ -1,7 +1,7 @@
 # nextjs-monorepo-template
 
 Hi 2 This is a production-ready monorepo setup using Next.js, Changesets, Vercel, and GitHub Actions for CI/CD. Each package in packages/ is independently versioned and deployed.
-TODO: I was able to add a file via GH GUI - can this be disallowed, how does it fit in the framework?
+TODO: to update node version, update .nvmrc and CI will follow. npnm version is handled already by CI and tracks with package.json `packageManager`
 
 This repository provides a minimal monorepo setup for Next.js applications. It uses pnpm workspaces, Changesets, and Vercel for deployment. Each package under `packages/` is versioned and deployed independently.
 
