@@ -20,14 +20,15 @@ jobs:
         with:
           fetch-depth: 0  # Fetch all history so that the lockfile is available
       
-      - name: Install pnpm
-        run: npm install -g pnpm@8.15.4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: '.nvmrc'
           cache: 'pnpm'
+      
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '9.1.4'     # keep in sync with package.json `packageManager`
+          run_install: false
         
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -44,15 +45,16 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Install pnpm
-        run: npm install -g pnpm@8.15.4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: '.nvmrc'
           cache: 'pnpm'
           
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '9.1.4'     # keep in sync with package.json `packageManager`
+          run_install: false
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         
@@ -67,15 +69,16 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Install pnpm
-        run: npm install -g pnpm@8.15.4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: '.nvmrc'
           cache: 'pnpm'
           
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '9.1.4'     # keep in sync with package.json `packageManager`
+          run_install: false
+        
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         
@@ -89,15 +92,16 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Install pnpm
-        run: npm install -g pnpm@8.15.4
-
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version-file: '.nvmrc'
           cache: 'pnpm'
       
-      - run: npm install -g pnpm
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '9.1.4'     # keep in sync with package.json `packageManager`
+          run_install: false
+      
       - run: pnpm install
       - run: pnpm run release
         env:
