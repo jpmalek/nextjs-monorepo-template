@@ -1,8 +1,12 @@
 # nextjs-monorepo-template
 
-Hi 2 This is a production-ready monorepo setup using Next.js, Changesets, Vercel, and GitHub Actions for CI/CD. Each package in packages/ is independently versioned and deployed.
-TODO: 
- - to update node version, update .nvmrc and CI will follow. npnm version is handled already by CI and tracks with package.json `packageManager`
+This is a production-ready monorepo setup using Next.js, Changesets, Vercel, and GitHub Actions for CI/CD. Each package in packages/ is independently versioned and deployed.
+
+## Node and pnpm Version Management
+If the node version needs to be updated, update .nvmrc and CI will follow. npnm version is handled already by CI and tracks with package.
+
+## TODO: 
+ - must use turbo run build  and .next in vercel dashboard settings!
  - as of 5/28/2025 CI run takes 1m in staging.  
  - manually change branch protection rules to require 1 approval and previous merge commit
 - turborepo instructions, link to vercel free cache with npx turbo login && npx turbo link
@@ -22,7 +26,7 @@ git clone https://github.com/jpmalek/nextjs-monorepo-template.git
 
 ### 2. Create a new repository from the template:
 
-1. Run the "SETUP - step 1" script after setting the GITHUB_PERSONAL_TOKEN environment variable locally. This will ask you for a repository name, create a new repository from this template, clone it to your local machine, and cd to the new repository. Use the following command, which will run in the current shell properly (vs ./SETUP-step 1-create repo.sh which will run in a subshell and not affect the current shell):
+1. If you've already cloned the template repository, set the GITHUB_PERSONAL_TOKEN environment variable locally and then run the "SETUP - step 1" script using the following command, which will run in the current shell properly (vs ./SETUP-step 1-create repo.sh which will run in a subshell and not affect the current shell). This will ask you for a repository name, create a new repository from this template, clone it to your local machine, and cd to the new repository.
 
 ```bash
 export GITHUB_PERSONAL_TOKEN=<your-token>
