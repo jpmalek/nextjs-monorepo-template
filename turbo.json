@@ -12,10 +12,6 @@
         "persistent": true,
         "cache": false
       },
-      "teardown": {
-        "cache": false,
-        "dependsOn": []
-      },
       "//#teardown": {
         "cache": false
       }
