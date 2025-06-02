@@ -5,4 +5,6 @@
 
 ## Scripts
 - `dev`: `next dev`
+- `build`: `next build`
+- `start`: `next start`
 - `check-types`: `tsc --noEmit`

@@ -6,6 +6,12 @@
 ## Scripts
 - `dev:web`: `pnpm --filter web dev`
 - `dev:api`: `pnpm --filter api dev`
+- `build`: `turbo build`
+- `build:web`: `pnpm --filter web build`
+- `build:api`: `pnpm --filter api build`
+- `start`: `turbo start`
+- `start:web`: `pnpm --filter web start`
+- `start:api`: `pnpm --filter api start`
 - `prepare`: `husky install`
 - `release`: `changeset version && changeset publish`
 - `lint`: `eslint "packages/**/*.{ts,tsx}" --max-warnings=0`

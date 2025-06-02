@@ -2,6 +2,9 @@
   "name": "web",
   "version": "0.0.1",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "check-types": "tsc --noEmit"
   }
 }
