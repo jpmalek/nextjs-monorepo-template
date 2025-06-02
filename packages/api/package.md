@@ -6,5 +6,5 @@
 ## Scripts
 - `dev`: `next dev`
 - `build`: `next build`
-- `start`: `next start`
+- `start`: `node .next/standalone/server.js`
 - `check-types`: `tsc --noEmit`
