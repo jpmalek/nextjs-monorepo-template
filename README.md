@@ -3,19 +3,22 @@
 This is a production-ready monorepo setup using Next.js, Changesets, Vercel, and GitHub Actions for CI/CD. Each package in packages/ is independently versioned and deployed.
 
 ## Node and pnpm Version Management
+
 If the node version needs to be updated, update .nvmrc and CI will follow. npnm version is handled already by CI and tracks with package.
 
-## TODO: 
- - must use turbo run build  and .next in vercel dashboard settings!
- - as of 5/28/2025 CI run takes 1m in staging.  
- - manually change branch protection rules to require 1 approval and previous merge commit
+## TODO:
+
+- VERIFY? must use turbo run build and .next in vercel dashboard settings!
+- as of 5/28/2025 CI run takes 1m in staging.
+- manually change branch protection rules to require 1 approval and previous merge commit
 - turborepo instructions, link to vercel free cache with npx turbo login && npx turbo link
-This repository provides a minimal monorepo setup for Next.js applications. It uses pnpm workspaces, Changesets, and Vercel for deployment. Each package under `packages/` is versioned and deployed independently.
+  This repository provides a minimal monorepo setup for Next.js applications. It uses pnpm workspaces, Changesets, and Vercel for deployment. Each package under `packages/` is versioned and deployed independently.
 - run `pnpm run teardown` to kill running pids
 
 ## Getting Started
 
 Follow these steps to bootstrap a new project from this template and deploy it to Vercel.
+
 ### 1. Clone this repository
 
 1. Clone this template repository to your local machine:
@@ -40,14 +43,18 @@ Or, you can manually create a new repository from this template on GitHub and cl
 git clone https://github.com/<your-user>/<your-repo>.git
 cd <your-repo>
 ```
+
 ### 3. Configure the new repo in Github
+
 1. Create a Personal Access Token (PAT) with repo scope
 2. Add it as a repository secret named PAT in your GitHub repository settings (Settings > Secrets > Actions > New repository secret)
 3. Go to the new repository on Github and click **Settings**
-4. VERIFY: 
-  - change name of default branch to staging. 
-  - delete the main branch
-  - create staging and production environments;create new envs using the setup-envs workflow, change user id if need be, add workflow file to production branch, manually trigger workflows
+4. VERIFY:
+
+- change name of default branch to staging.
+- delete the main branch
+- create staging and production environments;create new envs using the setup-envs workflow, change user id if need be, add workflow file to production branch, manually trigger workflows
+
 5. Go to **Branches**
 6. Click **Add branch protection rule**
 7. Set the name to **staging**
@@ -58,6 +65,7 @@ cd <your-repo>
 12. Click **Create**
 
 ### 4. Install Docker and Docker Compose
+
 This project is configured to use Docker for development and testing in an environment that closely mimics the Vercel production environment on Ubuntu.
 
 1. Install Docker and Docker Compose if they are not already installed.
@@ -213,7 +221,7 @@ Inside `packages/api`, create `pages/api/hello.ts` with the following code:
 
 ```ts
 export default function handler(req: any, res: any) {
-  res.status(200).json({ message: process.env.HELLO_MESSAGE || 'hello world' });
+  res.status(200).json({ message: process.env.HELLO_MESSAGE || "hello world" });
 }
 ```
 
@@ -222,18 +230,18 @@ export default function handler(req: any, res: any) {
 Update `packages/web/pages/index.tsx`:
 
 ```tsx
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [message, setMessage] = useState('loading...')
+  const [message, setMessage] = useState("loading...");
 
   useEffect(() => {
     fetch(process.env.NEXT_PUBLIC_API_URL as string)
       .then((res) => res.json())
-      .then((data) => setMessage(data.message))
-  }, [])
+      .then((data) => setMessage(data.message));
+  }, []);
 
-  return <div>{message}</div>
+  return <div>{message}</div>;
 }
 ```
 
@@ -279,4 +287,3 @@ This runs both the `web` and `api` packages inside Docker containers. The web ap
 5. Deploy by pushing your code to GitHub.
 
 After deployment, the web project will fetch the greeting from the API project, and visiting the web URL will display `hello world`.
-
