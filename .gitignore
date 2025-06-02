@@ -23,3 +23,6 @@ postgres-data/
 # Docker environment
 .dockerenv
 .env.docker
+
+# turbo
+.turbo

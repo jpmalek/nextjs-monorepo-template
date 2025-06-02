@@ -2,6 +2,7 @@
   "name": "api",
   "version": "0.0.1",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "check-types": "tsc --noEmit"
   }
 } 

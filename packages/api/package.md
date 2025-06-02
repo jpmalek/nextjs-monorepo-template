@@ -5,3 +5,4 @@
 
 ## Scripts
 - `dev`: `next dev`
+- `check-types`: `tsc --noEmit`

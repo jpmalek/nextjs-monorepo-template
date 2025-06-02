@@ -10,6 +10,8 @@
 - `release`: `changeset version && changeset publish`
 - `lint`: `eslint "packages/**/*.{ts,tsx}" --max-warnings=0`
 - `test`: `vitest run`
+- `check-types`: `tsc --noEmit`
+- `teardown`: `./scripts/teardown.sh`
 
 ## Dependencies
 - `cross-env` (^7.0.3): Run scripts that set and use environment variables across platforms
@@ -40,5 +42,6 @@
 - `node-fetch` (^3.3.2): A light-weight module that brings Fetch API to node.js
 - `pnpm` (^10.11.0): Fast, disk space efficient package manager
 - `tailwindcss` (^4.1.8): A utility-first CSS framework for rapidly building custom user interfaces.
+- `turbo` (^2.5.4): Turborepo is a high-performance build system for JavaScript and TypeScript codebases.
 - `typescript` (^5.8.3): TypeScript is a language for application scale JavaScript development
 - `vitest` (^3.1.4): Next generation testing framework powered by Vite

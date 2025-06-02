@@ -41,18 +41,16 @@
           {
             "context": "lint",
             "integration_id": null
+          },
+          {
+            "context": "Vercel (Preview)",
+            "integration_id": null
           }
         ]
       }
     },
     {
       "type": "non_fast_forward" 
-    },
-    {
-      "type": "required_deployments",
-      "parameters": {
-        "required_deployment_environments": ["staging"]
-      }
     },
     {
       "type": "merge_queue",

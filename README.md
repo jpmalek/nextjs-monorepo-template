@@ -4,8 +4,10 @@ Hi 2 This is a production-ready monorepo setup using Next.js, Changesets, Vercel
 TODO: 
  - to update node version, update .nvmrc and CI will follow. npnm version is handled already by CI and tracks with package.json `packageManager`
  - as of 5/28/2025 CI run takes 1m in staging.  
-
+ - manually change branch protection rules to require 1 approval and previous merge commit
+- turborepo instructions, link to vercel free cache with npx turbo login && npx turbo link
 This repository provides a minimal monorepo setup for Next.js applications. It uses pnpm workspaces, Changesets, and Vercel for deployment. Each package under `packages/` is versioned and deployed independently.
+- run `pnpm run teardown` to kill running pids
 
 ## Getting Started
 
