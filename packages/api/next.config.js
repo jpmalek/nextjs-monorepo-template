@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   output: "standalone",
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   async headers() {
@@ -23,4 +23,6 @@ module.exports = {
       },
     ];
   },
-}; 
+};
+
+module.exports = nextConfig; 
