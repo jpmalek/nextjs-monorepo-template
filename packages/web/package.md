@@ -5,7 +5,7 @@
 
 ## Scripts
 - `dev`: `next dev`
-- `build`: `turbo run build`
+- `build`: `next build`
 - `start`: `node .next/standalone/server.js`
 - `check-types`: `tsc --noEmit`
 
