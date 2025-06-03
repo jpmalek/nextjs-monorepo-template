@@ -5,7 +5,8 @@ import path from 'path';
 
 // Test that the ESLint config file exists
 test('ESLint config exists', () => {
-  expect(fs.existsSync(path.resolve(process.cwd(), 'eslint.config.ts'))).toBe(true);
+  const configPath = path.resolve(process.cwd(), 'eslint.config.js');
+  expect(fs.existsSync(configPath)).toBe(true);
 });
 
 // Test that ESLint runs without crashing
@@ -29,8 +30,8 @@ test('ESLint strict check (no warnings allowed)', async () => {
 
 // Test that common linting rules are configured
 test('ESLint detects a sample error', async () => {
-  // Create a temporary file with a linting error
-  const tempDir = path.resolve(process.cwd(), 'tests/temp');
+  // Create a temporary file within the api package where TypeScript is configured
+  const tempDir = path.resolve(process.cwd(), 'packages/api/src/__tests__/temp');
   const tempFile = path.resolve(tempDir, 'lint-test-sample.ts');
   
   if (!fs.existsSync(tempDir)) {
@@ -38,19 +39,30 @@ test('ESLint detects a sample error', async () => {
   }
   
   // Write code with a common error (unused variable)
-  fs.writeFileSync(tempFile, `
+  const testCode = `
   function testFunction() {
     const unusedVariable = 'this should trigger a lint error';
     return 'something else';
   }
-  `);
+  `;
+  
+  fs.writeFileSync(tempFile, testCode);
   
   try {
-    // Run ESLint on the temp file
-    const { exitCode, stdout } = await execa('pnpm', ['eslint', tempFile], { reject: false });
+    // Run ESLint on the temp file with explicit config
+    const { exitCode, stdout } = await execa('pnpm', [
+      'eslint',
+      '--no-error-on-unmatched-pattern',
+      tempFile
+    ], { 
+      reject: false,
+      cwd: process.cwd()
+    });
     
-    // If ESLint is properly configured, it should detect the unused variable
-    // This validates that basic linting rules are working
+    // Debug output
+    // console.log('ESLint output:', { exitCode, stdout });
+    
+    // Check if ESLint found the unused variable
     expect(exitCode).not.toBe(0);
     expect(stdout).toContain('unusedVariable');
     
@@ -59,7 +71,7 @@ test('ESLint detects a sample error', async () => {
     if (fs.existsSync(tempFile)) {
       fs.unlinkSync(tempFile);
     }
-    if (fs.existsSync(tempDir)) {
+    if (fs.existsSync(tempDir) && fs.readdirSync(tempDir).length === 0) {
       fs.rmdirSync(tempDir);
     }
   }
