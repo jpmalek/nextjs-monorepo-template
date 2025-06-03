@@ -21,7 +21,7 @@
 
 ## Dependencies
 - `cross-env` (^7.0.3): Run scripts that set and use environment variables across platforms
-- `next` (15.3.2): The React Framework
+- `next` (15.3.3): The React Framework
 - `next-sitemap` (^4.2.3): Sitemap generator for next.js
 - `react` (^19.1.0): React is a JavaScript library for building user interfaces.
 - `react-dom` (19.1.0): React package for working with the DOM.
@@ -35,19 +35,21 @@
 - `@commitlint/cli` (^19.8.1): Lint your commit messages
 - `@commitlint/config-conventional` (^19.8.1): Shareable commitlint config enforcing conventional commits
 - `@tailwindcss/postcss` (^4.1.8): PostCSS plugin for Tailwind CSS, a utility-first CSS framework for rapidly building custom user interfaces
-- `@types/node` (^22.15.24): TypeScript definitions for node
+- `@testing-library/react` (^16.3.0): Simple and complete React DOM testing utilities that encourage good testing practices.
+- `@types/node` (^22.15.29): TypeScript definitions for node
 - `@types/react` (^19.1.6): TypeScript definitions for react
 - `@types/react-dom` (^19.1.5): TypeScript definitions for react-dom
-- `@typescript-eslint/eslint-plugin` (^8.33.0): TypeScript plugin for ESLint
-- `@typescript-eslint/parser` (^8.33.0): An ESLint custom parser which leverages TypeScript ESTree
+- `@typescript-eslint/eslint-plugin` (^8.33.1): TypeScript plugin for ESLint
+- `@typescript-eslint/parser` (^8.33.1): An ESLint custom parser which leverages TypeScript ESTree
+- `@vitejs/plugin-react` (^4.5.1): The default Vite plugin for React projects
 - `clsx` (^2.1.1): A tiny (239B) utility for constructing className strings conditionally.
-- `eslint` (^9.27.0): An AST-based pattern checker for JavaScript.
+- `eslint` (^9.28.0): An AST-based pattern checker for JavaScript.
 - `execa` (^9.6.0): Process execution for humans
 - `fast-glob` (^3.3.3): It's a very fast and efficient glob library for Node.js
 - `husky` (^9.1.7): Modern native Git hooks
 - `node-fetch` (^3.3.2): A light-weight module that brings Fetch API to node.js
-- `pnpm` (^10.11.0): Fast, disk space efficient package manager
+- `pnpm` (^10.11.1): Fast, disk space efficient package manager
 - `tailwindcss` (^4.1.8): A utility-first CSS framework for rapidly building custom user interfaces.
 - `turbo` (^2.5.4): Turborepo is a high-performance build system for JavaScript and TypeScript codebases.
 - `typescript` (^5.8.3): TypeScript is a language for application scale JavaScript development
-- `vitest` (^3.1.4): Next generation testing framework powered by Vite
+- `vitest` (^3.2.1): Next generation testing framework powered by Vite
