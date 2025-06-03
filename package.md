@@ -35,6 +35,7 @@
 - `@commitlint/cli` (^19.8.1): Lint your commit messages
 - `@commitlint/config-conventional` (^19.8.1): Shareable commitlint config enforcing conventional commits
 - `@tailwindcss/postcss` (^4.1.8): PostCSS plugin for Tailwind CSS, a utility-first CSS framework for rapidly building custom user interfaces
+- `@testing-library/jest-dom` (^6.6.3): Custom jest matchers to test the state of the DOM
 - `@testing-library/react` (^16.3.0): Simple and complete React DOM testing utilities that encourage good testing practices.
 - `@types/node` (^22.15.29): TypeScript definitions for node
 - `@types/react` (^19.1.6): TypeScript definitions for react
@@ -47,6 +48,7 @@
 - `execa` (^9.6.0): Process execution for humans
 - `fast-glob` (^3.3.3): It's a very fast and efficient glob library for Node.js
 - `husky` (^9.1.7): Modern native Git hooks
+- `jsdom` (^26.1.0): A JavaScript implementation of many web standards
 - `node-fetch` (^3.3.2): A light-weight module that brings Fetch API to node.js
 - `pnpm` (^10.11.1): Fast, disk space efficient package manager
 - `tailwindcss` (^4.1.8): A utility-first CSS framework for rapidly building custom user interfaces.

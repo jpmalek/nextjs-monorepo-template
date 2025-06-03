@@ -21,6 +21,7 @@ export default defineWorkspace([
     plugins: [react()],
     test: {
       name: 'jsdom',
+      globals: true,
       environment: 'jsdom',
       setupFiles: ['./vitest.setup.ts'],
       include: ['**/*.test.tsx'],
