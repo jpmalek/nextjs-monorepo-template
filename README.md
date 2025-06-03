@@ -14,8 +14,7 @@ If the node version needs to be updated, update .nvmrc and CI will follow. npnm 
 - turborepo instructions, link to vercel free cache with npx turbo login && npx turbo link
   This repository provides a minimal monorepo setup for Next.js applications. It uses pnpm workspaces, Changesets, and Vercel for deployment. Each package under `packages/` is versioned and deployed independently.
 - run `pnpm run teardown` to kill running pids
-- Use the .ts extension for standard TypeScript files, and .tsx only when the file contains JSX (i.e., HTML-like syntax used in React components).
-
+- Do not add or create new .js files in this repository. Use Typescript, and the .ts extension for standard TypeScript files, and .tsx only when the file contains JSX (i.e., HTML-like syntax used in React components).
 
 ## Getting Started
 
