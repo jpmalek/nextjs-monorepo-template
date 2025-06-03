@@ -14,6 +14,8 @@ If the node version needs to be updated, update .nvmrc and CI will follow. npnm 
 - turborepo instructions, link to vercel free cache with npx turbo login && npx turbo link
   This repository provides a minimal monorepo setup for Next.js applications. It uses pnpm workspaces, Changesets, and Vercel for deployment. Each package under `packages/` is versioned and deployed independently.
 - run `pnpm run teardown` to kill running pids
+- Use the .ts extension for standard TypeScript files, and .tsx only when the file contains JSX (i.e., HTML-like syntax used in React components).
+
 
 ## Getting Started
 
@@ -69,6 +71,8 @@ cd <your-repo>
 This project is configured to use Docker for development and testing in an environment that closely mimics the Vercel production environment on Ubuntu.
 
 1. Install Docker and Docker Compose if they are not already installed.
+
+TODO: each package will be deployed to its own container — each package should have its own Dockerfile.
 
 ### 5. Build and start the development containers
 
