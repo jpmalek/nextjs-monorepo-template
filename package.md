@@ -42,6 +42,7 @@
 - `@types/node` (^22.15.29): TypeScript definitions for node
 - `@types/react` (^19.1.6): TypeScript definitions for react
 - `@types/react-dom` (^19.1.5): TypeScript definitions for react-dom
+- `@types/webpack` (^5.28.5): TypeScript definitions for webpack
 - `@typescript-eslint/eslint-plugin` (^8.33.1): TypeScript plugin for ESLint
 - `@typescript-eslint/parser` (^8.33.1): An ESLint custom parser which leverages TypeScript ESTree
 - `@vitejs/plugin-react` (^4.5.1): The default Vite plugin for React projects
@@ -52,6 +53,7 @@
 - `fast-glob` (^3.3.3): It's a very fast and efficient glob library for Node.js
 - `globals` (^16.2.0): Global identifiers from different JavaScript environments
 - `husky` (^9.1.7): Modern native Git hooks
+- `ignore-loader` (^0.1.2): Webpack loader to ignore certain package on build.
 - `jsdom` (^26.1.0): A JavaScript implementation of many web standards
 - `node-fetch` (^3.3.2): A light-weight module that brings Fetch API to node.js
 - `pnpm` (^10.11.1): Fast, disk space efficient package manager
@@ -59,3 +61,4 @@
 - `turbo` (^2.5.4): Turborepo is a high-performance build system for JavaScript and TypeScript codebases.
 - `typescript` (^5.8.3): TypeScript is a language for application scale JavaScript development
 - `vitest` (^3.2.1): Next generation testing framework powered by Vite
+- `webpack` (^5.99.9): Packs ECMAScript/CommonJs/AMD modules for the browser. Allows you to split your codebase into multiple bundles, which can be loaded on demand. Supports loaders to preprocess files, i.e. json, jsx, es7, css, less, ... and your custom stuff.

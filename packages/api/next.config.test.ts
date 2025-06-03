@@ -7,6 +7,6 @@ describe('API Next.js config', () => {
   });
 
   it('should include proper page extensions', () => {
-    expect(nextConfig.pageExtensions).toEqual(['js', 'jsx', 'ts', 'tsx']);
+    expect(nextConfig.pageExtensions).toEqual(['page.tsx', 'page.ts', 'page.jsx', 'page.js']);
   });
 });

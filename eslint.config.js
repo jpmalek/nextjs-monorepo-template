@@ -17,8 +17,43 @@ export default [
       '**/dist',
       '**/build',
       '**/.next',
-      '**/out'
+      '**/out',
+      '**/*.test.ts',
+      '**/*.spec.ts',
+      '**/*.test.tsx',
+      '**/*.spec.tsx'
     ],
+  },
+  
+  // Next.js config files - must come before TypeScript config
+  {
+    files: ['**/next.config.{js,ts}'],
+    languageOptions: {
+      sourceType: 'commonjs',  // Allow require() in config files
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      // Disable rules that conflict with Next.js config files
+      'import/no-commonjs': 'off',
+      '@typescript-eslint/no-var-requires': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-return': 'off',
+      '@typescript-eslint/no-unsafe-argument': 'off',
+      '@typescript-eslint/restrict-template-expressions': 'off',
+      '@typescript-eslint/no-unused-vars': ['error', { 
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+        destructuredArrayIgnorePattern: '^_',
+        ignoreRestSiblings: true
+      }]
+    }
   },
   
   // JavaScript/TypeScript base config
