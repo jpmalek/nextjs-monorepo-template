@@ -5,7 +5,7 @@ import path from 'path';
 
 // Test that the ESLint config file exists
 test('ESLint config exists', () => {
-  expect(fs.existsSync(path.resolve(process.cwd(), 'eslint.config.js'))).toBe(true);
+  expect(fs.existsSync(path.resolve(process.cwd(), 'eslint.config.ts'))).toBe(true);
 });
 
 // Test that ESLint runs without crashing
