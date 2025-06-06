@@ -37,4 +37,5 @@
 
 # Develop
 - Install the Prettier extension in your IDE.
-The Chrome DevTools console is used for additional quality checks and debugging.
+- Use AI to generate draft code commit messages.
+- Use the Chrome DevTools console for additional quality checks and debugging.

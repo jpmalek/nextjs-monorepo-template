@@ -6,6 +6,18 @@ This is a production-ready monorepo setup using Next.js, Changesets, Vercel, and
 
 If the node version needs to be updated, update .nvmrc and CI will follow. npnm version is handled already by CI and tracks with package.
 
+## Features
+When committing code, a pre-commmit hook runs the following:
+- sherif, which checks for and fixes package.json file formatting and versioning.
+- a custom script that checks to see if any package.json files were changed, and if so, generate package docs in package.md files.
+- lint, which uses eslint to check for code formatting issues. It fails on all warnings, so you must fix them before committing.
+- test, which uses vitest to run tests, including a unit test that verifies the lint config is working properly.All tests must pass before committing.
+- check-types, which checks for Typescript compilation errors for Typescript files in the apps and packages directories.
+
+## Tools
+  When you want to:
+    - completely and recursively clean up all the pids: `pnpm run teardown`
+    - completely and recursively clean package repositories, and reinstall: `pnpm run `
 ## TODO:
 
 - VERIFY? must use turbo run build and .next in vercel dashboard settings!

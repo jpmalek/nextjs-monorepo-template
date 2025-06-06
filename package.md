@@ -16,7 +16,7 @@
 - `release`: `changeset version && changeset publish`
 - `lint`: `eslint "{apps,packages}/**/*.{ts,tsx}" --max-warnings=0`
 - `test`: `vitest run`
-- `check-types`: `tsc --noEmit`
+- `check-types`: `pnpm -r --filter "./apps/*" --filter "./packages/*" exec tsc --noEmit`
 - `teardown`: `./scripts/teardown.sh`
 
 ## Dev Dependencies

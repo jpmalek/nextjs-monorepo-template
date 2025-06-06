@@ -37,6 +37,17 @@ if [ $? -ne 0 ]; then
 fi
 echo "✅ Lint check passed."
 
+echo "Checking types..."
+# Run type check
+pnpm check-types
+
+# If type check fails, exit with error
+if [ $? -ne 0 ]; then
+  echo "❌ Type check failed. Please fix the TypeScript errors before committing."
+  exit 1
+fi
+echo "✅ Type check passed."
+
 echo "Running tests..."
 # Run tests
 pnpm run test
