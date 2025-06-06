@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getServerSideProps } from './index';
+import { getServerSideProps } from './index.page';
 
 describe('Home page', () => {
   it('should redirect to /api', async () => {
