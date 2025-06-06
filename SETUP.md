@@ -13,6 +13,7 @@
 - git add .
 - git commit -m "Initial commit"
 - git push -u origin staging
+- pnpm dlx sherif@latest
 
 # Setup AI rules
 

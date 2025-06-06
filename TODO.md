@@ -1,3 +1,10 @@
+
+TODO: Scheduled Dependency Update Job
+    Use a GitHub Action or cron job to run pnpm up --recursive weekly or biweekly on a dedicated branch (e.g., deps/update). Review changes via PR.
+TODO: Renovate or Dependabot
+    Use automated tools that open PRs with dependency upgrades, including changelogs and CI runs. They can be scoped by version range or package type.
+
+TODO: Vercel to notify me when build completes, with pass/fail and log.
 TODO: Corepack vs...whatever I had before
     https://github.com/nodejs/corepack
     Corepack is a zero-runtime-dependency Node.js script that acts as a bridge between Node.js projects and the package managers they are intended to be used with during development. In practical terms, Corepack lets you use Yarn, npm, and pnpm without having to install them.

@@ -8,9 +8,13 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@testing-library/react": "^16.3.0",
     "next": "15.3.3",
+    "next-sitemap": "^4.2.3",
     "react": "^19.1.0",
-    "react-dom": "19.1.0",
-    "@testing-library/react": "^16.3.0"
+    "react-dom": "^19.1.0",
+    "sharp": "0.34.2",
+    "tailwind-merge": "^3.3.0",
+    "tailwindcss-animate": "^1.0.7"
   }
 }
