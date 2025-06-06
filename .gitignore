@@ -26,3 +26,6 @@ postgres-data/
 
 # turbo
 .turbo
+
+# TypeScript
+*.tsbuildinfo
