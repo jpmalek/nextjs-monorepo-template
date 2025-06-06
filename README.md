@@ -203,24 +203,24 @@ pnpm add next react react-dom --filter api
 Create `.env.local` files in both packages:
 
 ```bash
-packages/api/.env.local
-packages/web/.env.local
+apps/api/.env.local
+apps/web/.env.local
 ```
 
 Add the following contents:
 
 ```bash
-# packages/api/.env.local
+# apps/api/.env.local
 HELLO_MESSAGE=hello world
 PORT=3001
 
-# packages/web/.env.local
+# apps/web/.env.local
 NEXT_PUBLIC_API_URL=http://localhost:3001/api/hello
 ```
 
 ### 16. Add a hello world route
 
-Inside `packages/api`, create `pages/api/hello.ts` with the following code:
+Inside `apps/api`, create `pages/api/hello.ts` with the following code:
 
 ```ts
 export default function handler(req: any, res: any) {
@@ -230,7 +230,7 @@ export default function handler(req: any, res: any) {
 
 ### 17. Display the message in the web app
 
-Update `packages/web/pages/index.tsx`:
+Update `apps/web/pages/index.tsx`:
 
 ```tsx
 import { useEffect, useState } from "react";
@@ -278,8 +278,8 @@ This runs both the `web` and `api` packages inside Docker containers. The web ap
 
 ### 20. Create Vercel projects
 
-1. Create **two** Vercel projects, one for `packages/web` and one for `packages/api`.
-2. When connecting each project to GitHub, set the **Root Directory** to the corresponding package (`packages/web` or `packages/api`).
+1. Create **two** Vercel projects, one for `apps/web` and one for `apps/api`.
+2. When connecting each project to GitHub, set the **Root Directory** to the corresponding package (`apps/web` or `apps/api`).
 3. Use these settings for both projects:
    - **Install Command:** `pnpm install --frozen-lockfile`
    - **Build Command:**

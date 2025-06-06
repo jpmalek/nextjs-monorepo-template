@@ -14,7 +14,7 @@
 - `start:api`: `pnpm --filter api start`
 - `prepare`: `husky install`
 - `release`: `changeset version && changeset publish`
-- `lint`: `eslint "packages/**/*.{ts,tsx}" --max-warnings=0`
+- `lint`: `eslint "{apps,packages}/**/*.{ts,tsx}" --max-warnings=0`
 - `test`: `vitest run`
 - `check-types`: `tsc --noEmit`
 - `teardown`: `./scripts/teardown.sh`

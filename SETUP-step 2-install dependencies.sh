@@ -21,7 +21,7 @@ pnpm add next react react-dom --filter web
 pnpm add next react react-dom --filter api
 
 # Create .env.local files
-touch packages/api/.env.local
-touch packages/web/.env.local
-echo "📝 Created .env.local files in packages/api and packages/web"
+touch apps/api/.env.local
+touch apps/web/.env.local
+echo "📝 Created .env.local files in apps/api and apps/web"
 

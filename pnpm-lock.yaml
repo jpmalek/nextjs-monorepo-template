@@ -130,7 +130,7 @@ importers:
         specifier: ^5.99.9
         version: 5.99.9
 
-  packages/api:
+  apps/api:
     dependencies:
       next:
         specifier: 15.3.3
@@ -142,7 +142,7 @@ importers:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
 
-  packages/web:
+  apps/web:
     dependencies:
       '@testing-library/react':
         specifier: ^16.3.0

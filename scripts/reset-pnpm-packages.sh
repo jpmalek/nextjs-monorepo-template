@@ -5,6 +5,8 @@ rm -rf node_modules
 rm -rf packages/*/node_modules
 rm pnpm-lock.yaml
 
+echo "Updating corepack to get the latest version of pnpm..."
+corepack up
 # Clean pnpm store
 echo "Cleaning pnpm store..."
 pnpm store prune

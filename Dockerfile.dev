@@ -26,20 +26,20 @@ WORKDIR /app
 
 # First copy package files
 COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* ./
-COPY packages/web/package.json ./packages/web/package.json
+COPY apps/web/package.json ./apps/web/package.json
 
 # Copy the rest of the application
 COPY . .
 
 # Install all dependencies (root + workspaces) and TypeScript types
 RUN pnpm install --no-frozen-lockfile -r && \
-    cd packages/web && \
+    cd apps/web && \
     pnpm add --save-exact --save-dev @types/react @types/node && \
     cd /app && \
     pnpm store prune --store /root/.local/share/pnpm/store
 
 # Set working directory to the web package
-WORKDIR /app/packages/web
+WORKDIR /app/apps/web
 
 EXPOSE 3000
 

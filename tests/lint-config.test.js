@@ -31,7 +31,7 @@ test('ESLint strict check (no warnings allowed)', async () => {
 // Test that common linting rules are configured
 test('ESLint detects a sample error', async () => {
   // Create a temporary file within the api package where TypeScript is configured
-  const tempDir = path.resolve(process.cwd(), 'packages/api/src/__tests__/temp');
+  const tempDir = path.resolve(process.cwd(), 'apps/api/src/__tests__/temp');
   const tempFile = path.resolve(tempDir, 'lint-test-sample.ts');
   
   if (!fs.existsSync(tempDir)) {

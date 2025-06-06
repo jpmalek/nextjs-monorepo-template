@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    working_dir: /app/packages/web
+    working_dir: /app/apps/web
     command: pnpm dev
     ports:
       - '3000:3000'

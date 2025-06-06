@@ -1,4 +1,9 @@
-TODO: Next.js page files must have "page" in their filename, e.g. index.page.tsx
+TODO: Corepack vs...whatever I had before
+    https://github.com/nodejs/corepack
+    Corepack is a zero-runtime-dependency Node.js script that acts as a bridge between Node.js projects and the package managers they are intended to be used with during development. In practical terms, Corepack lets you use Yarn, npm, and pnpm without having to install them.
+TODO: I don't like ../api/pages/api, and don't know what next.config.ts is actually doing wrt "not allowing" test files.
+
+TODO: Next.js page files must have "page" in their filename, e.g. index.page.tsx. This is because we want .test.tsx and .test.tx files grouped with the page files, but without causing Next.js to treat them as pages.
 
 TODO: All filename.ts and filename.tsx files have a matching test file in the format TODO: filename.test.ts or filename.test.tsx, in the same directory. Exceptions include:
 TODO: Configuration files (\*.config.ts, eslint.config.ts, vitest.config.ts)

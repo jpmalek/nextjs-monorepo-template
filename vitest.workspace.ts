@@ -9,8 +9,8 @@ export default defineWorkspace([
       environment: 'node',
       include: [
         '**/tests/**/*.test.js',
-        '**/packages/api/**/*.test.ts',
-        '**/packages/web/**/*.test.ts',
+        '**/apps/api/**/*.test.ts',
+        '**/apps/web/**/*.test.ts',
         '**/*.test.ts'
       ],
       exclude: ['**/node_modules/**'],
