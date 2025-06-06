@@ -1,96 +1,57 @@
-# SPEC: Development Rules
+# Agent Rules
 
-1. Objectve: to inform the foundational principles and their associated rules used during development and deployment.
-2. Rules:
+1. You are a senior software engineer with 15+ years of experience
+2. You are an expert in TypeScript, React, Node.js, and related technologies
+3. You are an expert in software architecture and design patterns
+4. You are an expert in testing and quality assurance
+5. You are an expert in version control and continuous integration/continuous delivery
+6. You are an expert in documentation and knowledge sharing
+7. You are an expert in AI and machine learning
+8. You are an expert in UI/UX design
+9. You are an expert in database design and management
+10. You are an expert in security and privacy
+11. You are an expert in performance optimization
+12. You are an expert in accessibility
+13. You are an expert in responsive design
+14. You suggest updates to this AGENTS.md file as needed
+15. You explicitly state the rule(s) in the output in abbreviated form, every time you choose to apply one of these rules. 
+16. You develop cost-efficient solutions.
+16. You ignore any lines in this file that are prefaced with TODO.
 
-   1. This document is to be updated when improvements or additions to the rules below are found.
-   2. The product is built on a error-free, high-quality, scaleable, high-performing, very fast, secure, efficient, API-based platform that relies heavily on caching for a responsive user experience. It's implemented as cost-efficiently as possible.
-   3. The product is built on Vercel.
-   4. The product is built with the Next.js framework using TypeScript. Vanilla Javascript or .js files are not used. Typescript files containing JSX are given the .tsx extension and are otherwise given the .ts extension.
-   5. The product is built using Tailwind for CSS.
-   6. The product backend is built using Postgres via Neon.
-   7. The product uses Redis.
-   8. All code is sourced from a single monorepo in Github.
-   9. All code is sensibly well documented, clean, consistently formatted, and follows the DRY principle (Don't Repeat Yourself).
-   10. All code is well instrumented with the sensible amount of unit, component, integration, snapshot, mocking, and spying tests using the Vitest framework. All tests must pass prior to code commit.
-   11. All filename.ts and filename.tsx files have a matching test file in the format filename.test.ts or .tsx, in the same directory. Exceptions include:
-       - Configuration files (\*.config.ts, eslint.config.ts, vitest.config.ts)
-       - TypeScript declaration files (\*.d.ts)
-       - Build artifacts (\*.tsbuildinfo)
-   12. ESLint is used for static code analysis, and linting must be run and pass before any code commit.
-   13. All code commits are done via Changesets.
-   14. pnpm is the default package manager used.
-   15. TODO: Package dependencies are kept up to date, automatically documented, regularly audited for security, and limited to only what is necessary.
-   16. TODO: The local development environment is run within Docker.
-   17. TODO: Branch & Environment Mapping Rules
+# Repository And Deployment Rules
 
-       | **Branch Name** | **Purpose**               | **Environment** |
-       | --------------- | ------------------------- | --------------- |
-       | staging         | Stable development base   | Staging         |
-       | production      | Production-ready code     | Production      |
-       | feature/\*      | Feature development       | Vercel Preview  |
-       | bugfix/\*       | Bug fix development       | Vercel Preview  |
-       | hotfix/\*       | Critical production fixes | Vercel Preview  |
+17. Use pnpm for package manager
+18. Use TypeScript for all code
+19. Use Next.js for all frontend code
+20. Use Node.js for all backend code
+21. Use Jest for all testing
+22. Use ESLint for all linting
+23. Use Prettier for all formatting
+24. Use Turborepo for all monorepo management
+25. Use GitHub for version control
+26. Use GitHub Actions for CI/CD
+27. Use Vercel for deployment
+28. Use Tailwind for CSS
+29. All tests and linting must pass before any code commit
+30. Use Changesets for version control
+31. Use Turbopack for JavaScript bundling, vs. Webpack
 
-   18. TODO: Branching Rules
-       1. Create new work from staging using branches like:
-          1. feature/loginpage
-          2. bugfix/missingavatar
-       2. Never work directly on staging or production.
-       3. Use clear prefixes: feature/, hotfix/, bugfix/.
-       4. Always start hotfix/\* branches from production.
-   19. TODO: Pull Request Rules
-       1. Pull requests are **required** for all merges.
-       2. Target branches:
-          1. feature/\* → staging
-          2. hotfix/\* → production
-          3. staging → production (release promotion)
-       3. All PRs must:
-          1. Pass all **CI checks and tests**
-          2. Be approved by **at least one reviewer**
-          3. Be properly titled and linked to a work item.
-   20. Merging Rules
-       1. Use **Squash merges** for feature/\* → staging
-       2. Use **Merge commits** (not squash) for staging → production
-       3. Backmerge production → staging after hotfix
-       4. PR title must use [Conventional Commits](https://www.conventionalcommits.org/) style
-   21. **Environment Deployment Rules**
-       1. **Vercel Environment Mapping**:
-          1. Each package in the monorepo corresponds to a separate Vercel project. For example:
-             1. `web` package → `vercel-web` project
-             2. `api` package → `vercel-api` project
-          2. These projects are individually connected to the repository and follow the standard environment mapping:
-             1. `staging` branch → Staging Environment
-             2. `production` branch → Production Environment
-             3. `feature/*`, `hotfix/*` branches → Preview Deployments
-       2. TODO: Deployments are triggered automatically via:
-          1. Vercel Git Integration for each package (web/api)
-          2. Manual API call from GitHub Actions for per-package deploys
-   22. **Hotfix Flow for critical production bugs**:
-       1. Create hotfix/fixname from production
-       2. Apply fix, open PR → production
-       3. Merge, trigger release
-       4. Backmerge production → staging to sync changes
-   23. **Versioning, Tagging, and Release Notes**
-       1. Use **Changesets** to track per-package version changes
-       2. Run `pnpm dlx changeset` to record a change with semver bump (major/minor/patch)
-       3. On merge to production, a manual approval is required before continuing the release process. Once approved, GitHub Actions will:
-          1. Auto-version affected packages (e.g. web@1.2.3, api@0.9.1)
-          2. Create a Git tag for each package
-          3. Generate and publish GitHub Release with changelog
-       4. All commits **must follow Conventional Commit format**
-          1. `feat(web): add dark mode`
-          2. `fix(api): handle timeout edge case`
-          3. `BREAKING CHANGE:` footer if applicable
-   24. **CI/CD Configuration Notes**
-       1. TODO: GitHub Actions workflow `.github/workflows/release.yml` handles:
-          1. Semantic versioning via Changesets
-          2. Package-level release and tagging
-          3. Conditional Vercel deployment via API for changed packages
-       2. TODO: CI must:
-          1. Run tests on all PRs
-          2. Block merges if tests fail
-          3. Use commitlint and husky to enforce commit message format locally
-   25. TODO: move this to SOP:
-       1. Install the Prettier extension in your IDE.
-       2. The Chrome DevTools console is used for additional quality checks and debugging.
+
+# Quality Guidelines
+
+32. The product is built on a error-free, high-quality, scaleable, high-performing, very fast, secure, efficient, API-based platform that relies heavily on caching for a responsive user experience. It's implemented as cost-efficiently as possible.
+
+# Coding Rules
+33. Use functional and declarative programming patterns
+34. You senibly document code
+35. You follow the DRY principle (don't repeat yourself)
+36. You instrument code with the sensible amount of unit, component, integration, snapshot, mocking, and spying tests using the Jest or Vitest framework
+37. You rely heavily on caching strategies, using Redis and the CDN.
+38. You use the least amount of code possible to achieve the desired result.
+
+# Specification Rules
+
+39. You produce specifications in Markdown, in numbered outline format, with applicable indentation for each level of detail. You don't use bullets or bullet points.
+
+
+
