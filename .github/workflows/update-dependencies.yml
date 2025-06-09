@@ -48,7 +48,7 @@ jobs:
 
             Please review the changes and merge if appropriate.
           branch: "deps/update" # Dedicated branch for dependency updates
-          base: main # Assumes 'main' is your default branch. Change if it's different (e.g., 'master').
+          base: staging # Sets the base branch for the PR to 'staging'.
           # If the 'deps/update' branch already exists, it will be updated.
           # If a PR from 'deps/update' to 'base' already exists, it will be updated.
           # If no files were changed by `pnpm up --recursive`, no PR will be created.
