@@ -14,6 +14,7 @@
 - git commit -m "Initial commit"
 - git push -u origin staging
 - pnpm dlx sherif@latest
+- Navigate to your repository settings on GitHub.In the left sidebar, go to Actions > General. Scroll down to the Workflow permissions section.Ensure that the option "Allow GitHub Actions to create and approve pull requests" is checked/enabled.
 
 # Setup AI rules
 

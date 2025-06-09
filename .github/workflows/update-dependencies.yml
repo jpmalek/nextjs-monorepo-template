@@ -12,6 +12,7 @@ jobs:
     permissions:
       contents: write # Required to push changes to the deps/update branch
       pull-requests: write # Required to create/update the pull request
+      issues: write # Required to create labels if they don't exist
 
     steps:
       - name: Checkout repository
