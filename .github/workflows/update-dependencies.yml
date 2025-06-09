@@ -55,10 +55,8 @@ jobs:
           # If a PR from 'deps/update' to 'base' already exists, it will be updated.
           # If no files were changed by `pnpm up --recursive`, no PR will be created.
           labels: dependencies, automated
-          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           # delete-branch: true # Optional: uncomment if you want the branch deleted after the PR is merged
 
       - name: Output Pull Request URL
         if: steps.cpr.outputs.pull-request-url != ''
-        run: echo "Pull Request URL: ${{ steps.cpr.outputs.pull-request-url }}"
+        run: 'echo "Pull Request URL: ${{ steps.cpr.outputs.pull-request-url }}"'
