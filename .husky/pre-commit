@@ -1,4 +1,10 @@
-. "$(dirname "$0")/_/husky.sh"
+#!/usr/bin/env sh
+
+# Skip pre-commit checks in CI environment
+if [ "$CI" = "true" ]; then
+  echo "CI environment detected. Skipping pre-commit hooks."
+  exit 0
+fi
 
 echo "🔍 Running Sherif to check and fix package.json files..."
 if pnpm dlx sherif@latest -f; then
