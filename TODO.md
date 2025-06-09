@@ -1,10 +1,4 @@
-
-TODO: pnpm dlx sherif@latest -f  is run in the husky commmit hook which also generates package docs if package.json files were changed.
-TODO: Scheduled Dependency Update Job
-    Use a GitHub Action or cron job to run pnpm up --recursive weekly or biweekly on a dedicated branch (e.g., deps/update). Review changes via PR.
-TODO: Renovate or Dependabot
-    Use automated tools that open PRs with dependency upgrades, including changelogs and CI runs. They can be scoped by version range or package type.
-
+TODO: change checkin message token options
 TODO: Vercel to notify me when build completes, with pass/fail and log.
 TODO: Corepack vs...whatever I had before
     https://github.com/nodejs/corepack

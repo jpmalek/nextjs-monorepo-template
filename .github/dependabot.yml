@@ -1,0 +1,42 @@
+version: 2
+updates:
+  # Enable version updates for pnpm (via npm ecosystem)
+  - package-ecosystem: "npm"
+    directory: "/" # Checks the root for pnpm-workspace.yaml and package.json files
+    schedule:
+      interval: "weekly"
+      day: "tuesday"    # Staggered with your existing Monday pnpm update script
+      time: "04:00"     # UTC
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 10 # Max 10 open PRs for npm updates
+    target-branch: "staging"   # Aligns with your current PR strategy
+    labels:
+      - "dependencies"
+      - "automated"
+      - "dependabot"
+    commit-message:
+      prefix: "deps"           # Conventional commit prefix for dependency updates
+      prefix-development: "deps(dev)"
+      include: "scope"
+    # By default, Dependabot for npm will:
+    # 1. Create PRs for security vulnerabilities.
+    # 2. Create PRs to update dependencies to their latest versions, including major versions.
+    # It respects pnpm and will update pnpm-lock.yaml.
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/" # Checks for GitHub Actions workflow files in the .github/workflows directory
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "05:00"     # UTC, shortly after npm checks
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5 # Max 5 open PRs for GitHub Actions updates
+    target-branch: "staging"
+    labels:
+      - "github-actions"
+      - "automated"
+      - "dependabot"
+    commit-message:
+      prefix: "chore(actions)" # Conventional commit prefix for GitHub Actions updates
+      include: "scope"

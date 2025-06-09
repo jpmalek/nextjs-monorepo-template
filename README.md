@@ -2,9 +2,12 @@
 
 This is a production-ready monorepo setup using Next.js, Changesets, Vercel, and GitHub Actions for CI/CD. Each package in packages/ is independently versioned and deployed.
 
-## Node and pnpm Version Management
+## PackageVersion Management, Node and pnpm 
 
-If the node version needs to be updated, update .nvmrc and CI will follow. npnm version is handled already by CI and tracks with package.
+- If the node version needs to be updated, update .nvmrc and CI will follow. 
+- npnm version is handled already by CI and tracks with package.
+- There's a Gihub workflow update-dependencies.yml that will update dependencies weekly on Monday mornings on a dedicated branch (e.g., deps/update). Review changes via PR.
+- Dependabot support: there's a .github/dependabot.yml file that will run checks on Tuesdays, check for major version updates and security fixes, and create PRs as needed.
 
 ## Features
 When committing code, a pre-commmit hook runs the following:
@@ -18,6 +21,7 @@ When committing code, a pre-commmit hook runs the following:
   When you want to:
     - completely and recursively clean up all the pids: `pnpm run teardown`
     - completely and recursively clean package repositories, and reinstall: `pnpm run `
+
 ## TODO:
 
 - VERIFY? must use turbo run build and .next in vercel dashboard settings!
@@ -64,18 +68,7 @@ cd <your-repo>
 3. Go to the new repository on Github and click **Settings**
 4. VERIFY:
 
-- change name of default branch to staging.
-- delete the main branch
-- create staging and production environments;create new envs using the setup-envs workflow, change user id if need be, add workflow file to production branch, manually trigger workflows
 
-5. Go to **Branches**
-6. Click **Add branch protection rule**
-7. Set the name to **staging**
-8. Click **Create**
-9. Go to **Branches**
-10. Click **Add branch protection rule**
-11. Set the name to **production**
-12. Click **Create**
 
 ### 4. Install Docker and Docker Compose
 
