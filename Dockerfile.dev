@@ -1,44 +1,52 @@
-FROM node:22.12.0-alpine AS base
+# Define versions as build arguments
+ARG NODE_VERSION=22
+ARG PNPM_VERSION=10.11.1 # Default to version from your package.json
 
-# Install dependencies and build tools
-# `--no-cache` avoids caching and ensures we get the latest package versions
-RUN apk add --no-cache \
-    # Required by node-gyp for native modules like sharp
-    libc6-compat \
-    # Required by node-gyp for native modules like sharp
+# Use an Ubuntu-based Node.js image
+FROM node:${NODE_VERSION}-jammy AS base
+
+# Install build tools required by node-gyp
+RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
-    # Required by node-gyp for native modules like sharp
-    py3-setuptools \
-    # Required by node-gyp for native modules like sharp
     make \
-    # Required by node-gyp for native modules like sharp
     g++ \
-    # Required by node-gyp for native modules like sharp
-    gcc
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set Python path for node-gyp
 ENV PYTHON=/usr/bin/python3
 
-# Install pnpm and next globally
-RUN npm install -g pnpm@8.15.4 next
+# Install pnpm globally using the specified version
+RUN npm install -g pnpm@${PNPM_VERSION}
 
 WORKDIR /app
 
-# First copy package files
+# Copy all package manager related files first to leverage Docker cache
 COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* ./
+# If your workspaces (apps/packages) have their own package.json files that are relevant
+# for the initial 'pnpm install' structure, copy them here.
+# Example for apps/web:
 COPY apps/web/package.json ./apps/web/package.json
+# Example for apps/api (if it exists and has a package.json):
+# COPY apps/api/package.json ./apps/api/package.json
 
-# Copy the rest of the application
+# Install all dependencies (root + workspaces)
+# Using --frozen-lockfile is recommended for reproducible builds in Docker/CI
+RUN pnpm install --frozen-lockfile -r
+
+# Copy the rest of the application code
 COPY . .
 
-# Install all dependencies (root + workspaces) and TypeScript types
-RUN pnpm install --no-frozen-lockfile -r && \
-    cd apps/web && \
-    pnpm add --save-exact --save-dev @types/react @types/node && \
-    cd /app && \
-    pnpm store prune --store /root/.local/share/pnpm/store
+# The specific @types/react and @types/node installation for apps/web
+# should ideally be part of apps/web/package.json devDependencies.
+# If they are already, this line is not needed.
+# If not, and you must do it here, ensure it's after the main pnpm install and code copy:
+# RUN cd apps/web && pnpm add --save-exact --save-dev @types/react @types/node && cd /app
 
-# Set working directory to the web package
+# Prune the store (optional, can save space if you're not reusing the store layer much)
+RUN pnpm store prune
+
+# Set working directory to the web package (or your desired default)
 WORKDIR /app/apps/web
 
 EXPOSE 3000
