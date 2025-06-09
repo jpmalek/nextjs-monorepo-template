@@ -3,19 +3,25 @@
 This is a production-ready monorepo setup using Next.js, Changesets, Vercel, and GitHub Actions for CI/CD. Each package in packages/ is independently versioned and deployed.
 
 ## PackageVersion Management, Node and pnpm 
+Package dependencies are kept up to date, automatically documented, regularly audited for security, and limited to only what is necessary.
 
 - If the node version needs to be updated, update .nvmrc and CI will follow. 
 - npnm version is handled already by CI and tracks with package.
 - There's a Gihub workflow update-dependencies.yml that will update dependencies weekly on Monday mornings on a dedicated branch (e.g., deps/update). Review changes via PR.
 - Dependabot support: there's a .github/dependabot.yml file that will run checks on Tuesdays, check for major version updates and security fixes, and create PRs as needed.
 
-## Features
-When committing code, a pre-commmit hook runs the following:
+## Quality and Security Constraints
+When committing code, the Husky commit-msg hook runs commitlint, which enforces a commit message format. You must use the format "type(scope): subject", and the acceptable types can be found in commitlint.config.js.
+
+Then the Husky pre-commit hook runs the following:
 - sherif, which checks for and fixes package.json file formatting and versioning.
 - a custom script that checks to see if any package.json files were changed, and if so, generate package docs in package.md files.
 - lint, which uses eslint to check for code formatting issues. It fails on all warnings, so you must fix them before committing.
 - test, which uses vitest to run tests, including a unit test that verifies the lint config is working properly.All tests must pass before committing.
 - check-types, which checks for Typescript compilation errors for Typescript files in the apps and packages directories.
+
+## AI and Agentic Support
+- There's an AGENTS.md file that contains the rules that AI should follow during development, and configuration files that point to it, for both Cursor and Windsurf.
 
 ## Tools
   When you want to:
@@ -24,11 +30,9 @@ When committing code, a pre-commmit hook runs the following:
 
 ## TODO:
 
-- VERIFY? must use turbo run build and .next in vercel dashboard settings!
 - as of 5/28/2025 CI run takes 1m in staging.
 - manually change branch protection rules to require 1 approval and previous merge commit
 - turborepo instructions, link to vercel free cache with npx turbo login && npx turbo link
-  This repository provides a minimal monorepo setup for Next.js applications. It uses pnpm workspaces, Changesets, and Vercel for deployment. Each package under `packages/` is versioned and deployed independently.
 - run `pnpm run teardown` to kill running pids
 - Do not add or create new .js files in this repository. Use Typescript, and the .ts extension for standard TypeScript files, and .tsx only when the file contains JSX (i.e., HTML-like syntax used in React components).
 
