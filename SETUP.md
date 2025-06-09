@@ -13,8 +13,10 @@
 - git add .
 - git commit -m "Initial commit"
 - git push -u origin staging
-- pnpm dlx sherif@latest
+- verify the only branches that exist are staging and production; delete the main branch if necessary.
 - Navigate to your repository settings on GitHub.In the left sidebar, go to Actions > General. Scroll down to the Workflow permissions section.Ensure that the option "Allow GitHub Actions to create and approve pull requests" is checked/enabled.
+- Create staging and production environments; create new envs using the setup-envs workflow, change user id if need be, add workflow file to production branch, manually trigger workflows
+- Create branch protections: Go to **Branches** Click **Add branch protection rule** set up staging and production branch protections by uploading the branch protection rules files in .github/rulesets. 
 
 # Setup AI rules
 
