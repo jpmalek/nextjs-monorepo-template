@@ -1,0 +1,64 @@
+name: Update Dependencies Weekly
+
+on:
+  schedule:
+    # Runs at 16:00 UTC on Mondays (e.g., 9 AM PDT / 10 AM PST)
+    - cron: '0 16 * * 1'
+  workflow_dispatch: {} # Allows manual triggering from the Actions tab
+
+jobs:
+  update_and_create_pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push changes to the deps/update branch
+      pull-requests: write # Required to create/update the pull request
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        # Checks out the default branch (e.g., main)
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x' # Based on project memory
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest # Uses the latest version of pnpm. You can pin this to a specific version if needed.
+
+      - name: Install dependencies
+        id: pnpm-install
+        run: pnpm install --frozen-lockfile
+        # Ensures that the lockfile is respected and node_modules is in a clean state
+
+      - name: Update dependencies
+        id: pnpm-update
+        run: pnpm up --recursive
+        # Updates dependencies across the monorepo
+
+      - name: Create Pull Request if changes exist
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # Uses the default GitHub token
+          commit-message: "chore(deps): update dependencies"
+          title: "chore(deps): Weekly dependency update"
+          body: |
+            Automated weekly update of dependencies via `pnpm up --recursive`.
+
+            Please review the changes and merge if appropriate.
+          branch: "deps/update" # Dedicated branch for dependency updates
+          base: main # Assumes 'main' is your default branch. Change if it's different (e.g., 'master').
+          # If the 'deps/update' branch already exists, it will be updated.
+          # If a PR from 'deps/update' to 'base' already exists, it will be updated.
+          # If no files were changed by `pnpm up --recursive`, no PR will be created.
+          labels: dependencies, automated
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          # delete-branch: true # Optional: uncomment if you want the branch deleted after the PR is merged
+
+      - name: Output Pull Request URL
+        if: steps.cpr.outputs.pull-request-url != ''
+        run: echo "Pull Request URL: ${{ steps.cpr.outputs.pull-request-url }}"
