@@ -39,7 +39,7 @@
     "@types/webpack": "^5.28.5",
     "@typescript-eslint/eslint-plugin": "^8.34.0",
     "@typescript-eslint/parser": "^8.34.0",
-    "@vitejs/plugin-react": "^4.5.1",
+    "@vitejs/plugin-react": "^4.5.2",
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
     "eslint": "^9.28.0",
