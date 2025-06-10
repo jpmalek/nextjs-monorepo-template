@@ -14,6 +14,8 @@ Package dependencies are kept up to date, automatically documented, regularly au
 - Dependabot support: there's a .github/dependabot.yml file that will run checks on Tuesdays, check for major version updates and security fixes, and create PRs as needed.
 
 ## Quality and Security Constraints
+There are numerous controls in place to ensure the code is of high quality, and to ensure that deployments can be done quickly with high confidence.
+
 Turborepo caching is used to speed up the build process. 
 
 When committing code, the Husky commit-msg hook runs commitlint, which enforces a commit message format. You must use the format "type(scope): subject", and the acceptable types can be found in commitlint.config.js.
