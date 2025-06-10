@@ -29,13 +29,13 @@
 - `@tailwindcss/postcss` (^4.1.8): PostCSS plugin for Tailwind CSS, a utility-first CSS framework for rapidly building custom user interfaces
 - `@testing-library/jest-dom` (^6.6.3): Custom jest matchers to test the state of the DOM
 - `@testing-library/react` (^16.3.0): Simple and complete React DOM testing utilities that encourage good testing practices.
-- `@types/node` (^22.15.29): TypeScript definitions for node
-- `@types/react` (^19.1.6): TypeScript definitions for react
-- `@types/react-dom` (^19.1.5): TypeScript definitions for react-dom
+- `@types/node` (^24.0.0): TypeScript definitions for node
+- `@types/react` (^19.1.7): TypeScript definitions for react
+- `@types/react-dom` (^19.1.6): TypeScript definitions for react-dom
 - `@types/webpack` (^5.28.5): TypeScript definitions for webpack
-- `@typescript-eslint/eslint-plugin` (^8.33.1): TypeScript plugin for ESLint
-- `@typescript-eslint/parser` (^8.33.1): An ESLint custom parser which leverages TypeScript ESTree
-- `@vitejs/plugin-react` (^4.5.1): The default Vite plugin for React projects
+- `@typescript-eslint/eslint-plugin` (^8.34.0): TypeScript plugin for ESLint
+- `@typescript-eslint/parser` (^8.34.0): An ESLint custom parser which leverages TypeScript ESTree
+- `@vitejs/plugin-react` (^4.5.2): The default Vite plugin for React projects
 - `clsx` (^2.1.1): A tiny (239B) utility for constructing className strings conditionally.
 - `cross-env` (^7.0.3): Run scripts that set and use environment variables across platforms
 - `eslint` (^9.28.0): An AST-based pattern checker for JavaScript.
@@ -48,11 +48,11 @@
 - `jsdom` (^26.1.0): A JavaScript implementation of many web standards
 - `next` (15.3.3): The React Framework
 - `node-fetch` (^3.3.2): A light-weight module that brings Fetch API to node.js
-- `pnpm` (^10.11.1): Fast, disk space efficient package manager
+- `pnpm` (^10.12.1): Fast, disk space efficient package manager
 - `react` (^19.1.0): React is a JavaScript library for building user interfaces.
 - `react-dom` (^19.1.0): React package for working with the DOM.
 - `tailwindcss` (^4.1.8): A utility-first CSS framework for rapidly building custom user interfaces.
 - `turbo` (^2.5.4): Turborepo is a high-performance build system for JavaScript and TypeScript codebases.
 - `typescript` (^5.8.3): TypeScript is a language for application scale JavaScript development
-- `vitest` (^3.2.1): Next generation testing framework powered by Vite
+- `vitest` (^3.2.3): Next generation testing framework powered by Vite
 - `webpack` (^5.99.9): Packs ECMAScript/CommonJs/AMD modules for the browser. Allows you to split your codebase into multiple bundles, which can be loaded on demand. Supports loaders to preprocess files, i.e. json, jsx, es7, css, less, ... and your custom stuff.

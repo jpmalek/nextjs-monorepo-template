@@ -4,8 +4,10 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       args:
-        NODE_VERSION: "22"
-        PNPM_VERSION: "10.11.1"
+        # These versions should be set in your .env file (e.g., DOCKER_BUILD_NODE_VERSION=22)
+        # and reflect the versions specified in package.json (engines.node and packageManager).
+        NODE_VERSION: ${DOCKER_BUILD_NODE_VERSION:-22}
+        PNPM_VERSION: ${DOCKER_BUILD_PNPM_VERSION:-10.11.1}
     working_dir: /app/apps/web
     command: pnpm dev
     ports:

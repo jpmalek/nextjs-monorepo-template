@@ -8,7 +8,7 @@ This is a production-ready monorepo setup using Turborepo, Next.js, Changesets, 
 ## PackageVersion Management, Node and pnpm 
 Package dependencies are kept up to date, automatically documented, regularly audited for security, and limited to only what is necessary.
 
-- If the node version needs to be updated, update .nvmrc and CI will follow. 
+- .nvmrc is the single source of truth for the node version. If the node version needs to be updated, update .nvmrc and CI will follow. 
 - npnm version is handled already by CI and tracks with package.
 - There's a Gihub workflow update-dependencies.yml that will update dependencies weekly on Monday mornings on a dedicated branch (e.g., deps/update). Review changes via PR.
 - Dependabot support: there's a .github/dependabot.yml file that will run checks on Tuesdays, check for major version updates and security fixes, and create PRs as needed.
@@ -21,6 +21,7 @@ Turborepo caching is used to speed up the build process.
 When committing code, the Husky commit-msg hook runs commitlint, which enforces a commit message format. You must use the format "type(scope): subject", and the acceptable types can be found in commitlint.config.js.
 
 Then the Husky pre-commit hook runs the following:
+- a validation script that checks the root .nvmrc and package.json for the correct node and pnpm versions, and updates .env if needed.
 - sherif, which checks for and fixes package.json file formatting and versioning.
 - a custom script that checks to see if any package.json files were changed, and if so, generate package docs in package.md files.
 - lint, which uses eslint to check for code formatting issues. It fails on all warnings, so you must fix them before committing.

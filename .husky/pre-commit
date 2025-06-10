@@ -6,6 +6,18 @@ if [ "$CI" = "true" ]; then
   exit 0
 fi
 
+# Ensure versions are synchronized between package.json and .env.
+# This script makes `packageManager` the source of truth for the pnpm version
+# and syncs it to `engines.pnpm`. It also syncs versions to the .env file.
+if node scripts/ensure-env-versions.js; then
+  # If the script updated package.json, stage the changes so they are included in the commit.
+  git add package.json
+else
+  echo "❌ Failed to synchronize versions. Please check script output above."
+  exit 1 # Fail the commit if the script errors
+fi
+
+
 echo "🔍 Running Sherif to check and fix package.json files..."
 if pnpm dlx sherif@latest -f; then
   echo "✅ Sherif check passed (or fixed issues)."
