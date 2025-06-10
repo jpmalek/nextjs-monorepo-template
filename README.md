@@ -1,6 +1,9 @@
 # nextjs-monorepo-template
 
-This is a production-ready monorepo setup using Next.js, Changesets, Vercel, and GitHub Actions for CI/CD. Each package in packages/ is independently versioned and deployed.
+This is a production-ready monorepo setup using Turborepo, Next.js, Changesets, Vercel, and GitHub Actions for CI/CD. Each package in packages/ is independently versioned and deployed.
+
+## AI and Agentic Support
+- There's an AGENTS.md file that contains the rules that AI should follow during development, and configuration files that point to it, for both Cursor and Windsurf.
 
 ## PackageVersion Management, Node and pnpm 
 Package dependencies are kept up to date, automatically documented, regularly audited for security, and limited to only what is necessary.
@@ -11,6 +14,8 @@ Package dependencies are kept up to date, automatically documented, regularly au
 - Dependabot support: there's a .github/dependabot.yml file that will run checks on Tuesdays, check for major version updates and security fixes, and create PRs as needed.
 
 ## Quality and Security Constraints
+Turborepo caching is used to speed up the build process. 
+
 When committing code, the Husky commit-msg hook runs commitlint, which enforces a commit message format. You must use the format "type(scope): subject", and the acceptable types can be found in commitlint.config.js.
 
 Then the Husky pre-commit hook runs the following:
@@ -20,8 +25,12 @@ Then the Husky pre-commit hook runs the following:
 - test, which uses vitest to run tests, including a unit test that verifies the lint config is working properly.All tests must pass before committing.
 - check-types, which checks for Typescript compilation errors for Typescript files in the apps and packages directories.
 
-## AI and Agentic Support
-- There's an AGENTS.md file that contains the rules that AI should follow during development, and configuration files that point to it, for both Cursor and Windsurf.
+Changes to the product branch can only be made by squash-merging staging into it, or by creating a hotfix branch from production. 
+
+Changes to the staging branch can only be done via new branches and pull requests. 
+
+When merging to the staging or production branches, the CI GitHub Actions workflow (ci.yml) will run. 
+- For pull requests to merge into the staging branch, this will run lint and all tests, which must pass before the PR can be merged.
 
 ## Tools
   When you want to:
@@ -32,8 +41,6 @@ Then the Husky pre-commit hook runs the following:
 
 - as of 5/28/2025 CI run takes 1m in staging.
 - manually change branch protection rules to require 1 approval and previous merge commit
-- turborepo instructions, link to vercel free cache with npx turbo login && npx turbo link
-- run `pnpm run teardown` to kill running pids
 - Do not add or create new .js files in this repository. Use Typescript, and the .ts extension for standard TypeScript files, and .tsx only when the file contains JSX (i.e., HTML-like syntax used in React components).
 
 ## Getting Started

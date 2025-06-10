@@ -13,7 +13,6 @@ updates:
     labels:
       - "dependencies"
       - "automated"
-      - "dependabot"
     commit-message:
       prefix: "deps"           # Conventional commit prefix for dependency updates
       prefix-development: "deps(dev)"
@@ -36,7 +35,6 @@ updates:
     labels:
       - "github-actions"
       - "automated"
-      - "dependabot"
     commit-message:
       prefix: "chore(actions)" # Conventional commit prefix for GitHub Actions updates
       include: "scope"
