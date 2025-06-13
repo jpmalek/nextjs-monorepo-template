@@ -1,5 +1,12 @@
 #!/usr/bin/env sh
 
+# Load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Use the correct Node.js version
+nvm use
+
 # Skip pre-commit checks in CI environment
 if [ "$CI" = "true" ]; then
   echo "CI environment detected. Skipping pre-commit hooks."
