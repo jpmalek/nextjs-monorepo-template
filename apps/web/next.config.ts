@@ -1,13 +1,11 @@
 import type { NextConfig } from 'next';
+import webpack from 'webpack';
 
 const nextConfig: NextConfig = {
   output: "standalone",
   // Only include page files with these extensions (explicitly exclude test files)
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
-  webpack: async (config, { isServer: _isServer, dev: _dev }) => {
-    // Use dynamic import for webpack to avoid issues in monorepo
-    const webpack = await import('webpack');
-    
+  webpack: (config, { isServer: _isServer, dev: _dev }) => {
     // Ignore test files in node_modules
     config.plugins?.push(
       new webpack.IgnorePlugin({

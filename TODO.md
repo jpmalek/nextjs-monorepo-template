@@ -1,4 +1,22 @@
-TODO: change checkin message token options
+TODO: The local development environment is run within Docker.
+TODO: check out ARgo for CI/CD
+TODO:
+    - as of 5/28/2025 CI run takes 1m in staging.
+    - manually change branch protection rules to require 1 approval and previous merge commit
+    - Do not add or create new .js files in this repository. Use Typescript, and the .ts extension for standard TypeScript files, and .tsx only when the file contains JSX (i.e., HTML-like syntax used in React components).
+TODO: notes from call with Grant
+    Vercel: avoid PPR (ISR - vercel's version of this).
+    Vercel: THey use opentelemetry, plug in 
+    Vercel: image hosting is expensive via Next Image component
+    Vercel: check out render
+    Vercel: can be costly check out cloudflare, hard to beat for CDN, they partnered with open next, to hotwire next on cloudfrlare
+    https://github.com/leerob/next-self-host
+    https://opennext.js.org/cloudflare
+    https://www.better-auth.com/
+    ? enterprise account: nope, pro plan
+    ? use case w/ cached docs: depends on costs
+    ? auth: clerk
+    
 TODO: Vercel to notify me when build completes, with pass/fail and log.
 TODO: Corepack vs...whatever I had before
     https://github.com/nodejs/corepack
@@ -23,9 +41,7 @@ The repository structure is as follows:
     ├── ui/ # Shared component library
     ├── utils/ # Shared utils
 
-TODO: The product uses Redis.
-TODO: Package dependencies are kept up to date, automatically documented, regularly audited for security, and limited to only what is necessary.
-TODO: The local development environment is run within Docker.
+
 TODO: Branch & Environment Mapping Rules
 
     | **Branch Name** | **Purpose**               | **Environment** |
@@ -95,5 +111,3 @@ TODO: Branch & Environment Mapping Rules
         1. Run tests on all PRs
         2. Block merges if tests fail
         3. Use commitlint and husky to enforce commit message format locally
-29. TODO: move this to SOP:
-    1.  

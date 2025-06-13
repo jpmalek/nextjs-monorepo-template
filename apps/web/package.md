@@ -16,5 +16,5 @@
 - `react` (^19.1.0): React is a JavaScript library for building user interfaces.
 - `react-dom` (^19.1.0): React package for working with the DOM.
 - `sharp` (0.34.2): High performance Node.js image processing, the fastest module to resize JPEG, PNG, WebP, GIF, AVIF and TIFF images
-- `tailwind-merge` (^3.3.0): Merge Tailwind CSS classes without style conflicts
+- `tailwind-merge` (^3.3.1): Merge Tailwind CSS classes without style conflicts
 - `tailwindcss-animate` (^1.0.7): A Tailwind CSS plugin for creating beautiful animations.

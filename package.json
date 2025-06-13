@@ -8,6 +8,7 @@
     "packages/*"
   ],
   "scripts": {
+    "dev": "turbo dev",
     "dev:web": "pnpm --filter web dev",
     "dev:api": "pnpm --filter api dev",
     "build": "turbo build",
@@ -21,24 +22,25 @@
     "lint": "eslint \"{apps,packages}/**/*.{ts,tsx}\" --max-warnings=0",
     "test": "vitest run",
     "check-types": "pnpm -r --filter \"./apps/*\" --filter \"./packages/*\" exec tsc --noEmit",
-    "teardown": "./scripts/teardown.sh"
+    "teardown": "./scripts/teardown.sh",
+    "reset-packages": "./scripts/reset-pnpm-packages.sh"
   },
   "engines": {
-    "node": "24.0.0",
-    "pnpm": "10.11.1"
+    "node": "24",
+    "pnpm": "10.12.1"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.4",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@eslint/js": "^9.28.0",
+    "@eslint/js": "^9.29.0",
     "@next/eslint-plugin-next": "15.3.3",
-    "@tailwindcss/postcss": "^4.1.8",
+    "@tailwindcss/postcss": "^4.1.10",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
-    "@types/node": "^24.0.0",
-    "@types/react": "^19.1.7",
+    "@types/node": "^24.0.1",
+    "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@types/webpack": "^5.28.5",
     "@typescript-eslint/eslint-plugin": "^8.34.0",
@@ -46,7 +48,7 @@
     "@vitejs/plugin-react": "^4.5.2",
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
-    "eslint": "^9.28.0",
+    "eslint": "^9.29.0",
     "eslint-plugin-next": "^0.0.0",
     "execa": "^9.6.0",
     "fast-glob": "^3.3.3",
@@ -59,11 +61,11 @@
     "pnpm": "^10.12.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "tailwindcss": "^4.1.8",
+    "tailwindcss": "^4.1.10",
     "turbo": "^2.5.4",
     "typescript": "^5.8.3",
     "vitest": "^3.2.3",
     "webpack": "^5.99.9"
   },
-  "packageManager": "pnpm@10.11.1+sha512.e519b9f7639869dc8d5c3c5dfef73b3f091094b0a006d7317353c72b124e80e1afd429732e28705ad6bfa1ee879c1fce46c128ccebd3192101f43dd67c667912"
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
 }

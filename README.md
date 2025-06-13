@@ -1,26 +1,30 @@
 # nextjs-monorepo-template
 
-This is a production-ready monorepo setup using Turborepo, Next.js, Changesets, Vercel, and GitHub Actions for CI/CD. Each package in packages/ is independently versioned and deployed.
+This is a production-ready monorepo setup using Turborepo, Next.js, Changesets, Vercel, and GitHub Actions for CI/CD. Each app in apps/ and each package in packages/ is independently versioned and deployed.
 
 ## AI and Agentic Support
+
 - There's an AGENTS.md file that contains the rules that AI should follow during development, and configuration files that point to it, for both Cursor and Windsurf.
 
-## PackageVersion Management, Node and pnpm 
+## PackageVersion Management, Node and pnpm
+
 Package dependencies are kept up to date, automatically documented, regularly audited for security, and limited to only what is necessary.
 
-- .nvmrc is the single source of truth for the node version. If the node version needs to be updated, update .nvmrc and CI will follow. 
+- .nvmrc is the single source of truth for the node version. If the node version needs to be updated, update .nvmrc and CI will follow.
 - npnm version is handled already by CI and tracks with package.
 - There's a Gihub workflow update-dependencies.yml that will update dependencies weekly on Monday mornings on a dedicated branch (e.g., deps/update). Review changes via PR.
 - Dependabot support: there's a .github/dependabot.yml file that will run checks on Tuesdays, check for major version updates and security fixes, and create PRs as needed.
 
 ## Quality and Security Constraints
+
 There are numerous controls in place to ensure the code is of high quality, and to ensure that deployments can be done quickly with high confidence.
 
-Turborepo caching is used to speed up the build process. 
+Turborepo caching is used to speed up the build process.
 
 When committing code, the Husky commit-msg hook runs commitlint, which enforces a commit message format. You must use the format "type(scope): subject", and the acceptable types can be found in commitlint.config.js.
 
 Then the Husky pre-commit hook runs the following:
+
 - a validation script that checks the root .nvmrc and package.json for the correct node and pnpm versions, and updates .env if needed.
 - sherif, which checks for and fixes package.json file formatting and versioning.
 - a custom script that checks to see if any package.json files were changed, and if so, generate package docs in package.md files.
@@ -28,23 +32,22 @@ Then the Husky pre-commit hook runs the following:
 - test, which uses vitest to run tests, including a unit test that verifies the lint config is working properly.All tests must pass before committing.
 - check-types, which checks for Typescript compilation errors for Typescript files in the apps and packages directories.
 
-Changes to the product branch can only be made by squash-merging staging into it, or by creating a hotfix branch from production. 
+Changes to the product branch can only be made by squash-merging staging into it, or by creating a hotfix branch from production.
 
-Changes to the staging branch can only be done via new branches and pull requests. 
+Changes to the staging branch can only be done via new branches and pull requests.
 
-When merging to the staging or production branches, the CI GitHub Actions workflow (ci.yml) will run. 
-- For pull requests to merge into the staging branch, this will run lint and all tests, which must pass before the PR can be merged.
+When merging to the staging or production branches, the CI GitHub Actions workflow (ci.yml) will run.
+
+For pull requests to merge into the staging branch, this will run lint and all tests, which must pass before the PR can be merged.
+
+To reduce potential build environment conflicts, development is done in a Docker container that mounts your local files, so your changes are picked up in real-time. 
 
 ## Tools
-  When you want to:
-    - completely and recursively clean up all the pids: `pnpm run teardown`
-    - completely and recursively clean package repositories, and reinstall: `pnpm run `
 
-## TODO:
+When you want to:
 
-- as of 5/28/2025 CI run takes 1m in staging.
-- manually change branch protection rules to require 1 approval and previous merge commit
-- Do not add or create new .js files in this repository. Use Typescript, and the .ts extension for standard TypeScript files, and .tsx only when the file contains JSX (i.e., HTML-like syntax used in React components).
+- shut down Docker and clean up all the pids: `pnpm run teardown`
+- completely and recursively clean package repositories, and reinstall: `pnpm run reset-packages`
 
 ## Getting Started
 
@@ -82,15 +85,11 @@ cd <your-repo>
 3. Go to the new repository on Github and click **Settings**
 4. VERIFY:
 
-
-
 ### 4. Install Docker and Docker Compose
 
-This project is configured to use Docker for development and testing in an environment that closely mimics the Vercel production environment on Ubuntu.
+This project is configured to use Docker for development and testing in an environment that closely mimics a production environment on Ubuntu.
 
 1. Install Docker and Docker Compose if they are not already installed.
-
-TODO: each package will be deployed to its own container — each package should have its own Dockerfile.
 
 ### 5. Build and start the development containers
 
@@ -98,7 +97,7 @@ TODO: each package will be deployed to its own container — each package should
 docker-compose up
 ```
 
-This will start both the web and API services in development mode.
+This will build and start the apps in development mode.
 
 ### 6. Development Workflow
 

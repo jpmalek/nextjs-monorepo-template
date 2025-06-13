@@ -1,0 +1,22 @@
+# Git and OS-specific files
+.git
+.DS_Store
+
+# Node dependencies - these should be installed inside the container
+node_modules
+
+# Build artifacts and caches
+.next
+dist
+build
+
+# Local environment files - these are mounted, not copied
+.env
+.env.*
+!/.env.example
+
+# Log files
+*.log
+
+# Husky directory
+.husky
