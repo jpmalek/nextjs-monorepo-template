@@ -93,8 +93,8 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
       pnpm:
-        specifier: ^10.12.1
-        version: 10.12.1
+        specifier: ^10.12.2
+        version: 10.12.2
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -2418,8 +2418,8 @@ packages:
     resolution: {integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==}
     engines: {node: '>=6'}
 
-  pnpm@10.12.1:
-    resolution: {integrity: sha512-8N2oWA8O6UgcXHmh2Se5Fk8sR46QmSrSaLuyRlpzaYQ5HWMz0sMnkTV4soBK8zR0ylVLopwEqLEwYKcXZ1rjrA==}
+  pnpm@10.12.2:
+    resolution: {integrity: sha512-oyVAGFuWTuMLtOl55AWtxq9ZImtDjuTMGfnodzZnpm0wL1v+5go508rGnjXkuW5winHdACt+k1nEESoXIqwyPw==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -5280,7 +5280,7 @@ snapshots:
 
   pify@4.0.1: {}
 
-  pnpm@10.12.1: {}
+  pnpm@10.12.2: {}
 
   postcss@8.4.31:
     dependencies:
