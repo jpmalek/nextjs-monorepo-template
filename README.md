@@ -25,6 +25,7 @@ When committing code, the Husky commit-msg hook runs commitlint, which enforces 
 
 Then the Husky pre-commit hook runs the following:
 
+- check-pnpm.js, which ensures that pnpm is being used instead of npm.
 - a validation script that checks the root .nvmrc and package.json for the correct node and pnpm versions, and updates .env if needed.
 - sherif, which checks for and fixes package.json file formatting and versioning.
 - a custom script that checks to see if any package.json files were changed, and if so, generate package docs in package.md files.

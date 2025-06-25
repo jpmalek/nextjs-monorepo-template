@@ -13,6 +13,16 @@ if [ "$CI" = "true" ]; then
   exit 0
 fi
 
+# Check for package-lock.json and fail if it exists
+if [ -f "package-lock.json" ]; then
+  echo "
+🚫 Error: A package-lock.json file was found.
+This repository uses pnpm, not npm. A package-lock.json file indicates that 'npm install' may have been run.
+Please remove the package-lock.json file and run 'pnpm install' to generate the correct pnpm-lock.yaml file.
+"
+  exit 1
+fi
+
 # Ensure versions are synchronized between package.json and .env.
 # This script makes `packageManager` the source of truth for the pnpm version
 # and syncs it to `engines.pnpm`. It also syncs versions to the .env file.
