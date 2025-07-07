@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+# Skip pre-commit checks in CI environment
+if [ "$CI" = "true" ]; then
+  echo "CI environment detected. Skipping pre-commit hooks."
+  exit 0
+fi
+
 # Load nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
