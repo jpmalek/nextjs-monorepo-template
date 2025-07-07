@@ -23,9 +23,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
+          cache: 'pnpm'
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v4 # Automatically uses pnpm version from package.json (via packageManager field)
+      - name: Enable Corepack and auto-prepare pnpm from packageManager
+        run: |
+          corepack enable
+          corepack prepare --activate
 
       - name: Install dependencies
         id: pnpm-install
