@@ -5,13 +5,13 @@
 
 ## Scripts
 - `preinstall`: `node scripts/check-pnpm.js`
-- `dev`: `turbo dev`
+- `dev`: `turbo run dev`
 - `dev:web`: `pnpm --filter web dev`
 - `dev:api`: `pnpm --filter api dev`
-- `build`: `turbo build`
+- `build`: `turbo run build`
 - `build:web`: `pnpm --filter web build`
 - `build:api`: `pnpm --filter api build`
-- `start`: `turbo start`
+- `start`: `turbo run start`
 - `start:web`: `pnpm --filter web start`
 - `start:api`: `pnpm --filter api start`
 - `prepare`: `husky`

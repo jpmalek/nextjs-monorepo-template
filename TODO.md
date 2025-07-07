@@ -1,12 +1,3 @@
-TODO: make the evaluation 
-    - The point of this excersize is to understand how well we'd work together, if you were brought on to the team. So in our meeting, you're free to use whatever tools you want, and ask me any questions you'd like, or ask me for help. This is how we'd work together. The point is not to gauge how smart you are, how much you know, or whether you can solve difficult problems. The point is to gauge how well we'd work together.
-    - Prepare for our meeting: 
-        - We will be creating a simple one page website in apps/web using Next.js and a simple API project in apps/api using NestJS. The website will perform all CRUD operations via the API project. 
-        - Clone this monorepo locally. 
-        - Review the monorepo to understand how it works, starting with README.md.
-        - See if you can find any problems or issues with the monorepo. There's one problem in particular that is out of alignment with the requirements above. If you find anything, fix it and create a pull request. 
-    
-
 TODO: The local development environment is run within Docker.
 TODO: check out Argo for CI/CD
 TODO:
