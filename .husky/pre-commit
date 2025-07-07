@@ -1,17 +1,17 @@
 #!/usr/bin/env sh
 
+# Skip pre-commit checks in CI environment
+if [ "$CI" = "true" ]; then
+  echo "CI environment detected. Skipping pre-commit hooks."
+  exit 0
+fi
+
 # Load nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Use the correct Node.js version
 nvm use
-
-# Skip pre-commit checks in CI environment
-if [ "$CI" = "true" ]; then
-  echo "CI environment detected. Skipping pre-commit hooks."
-  exit 0
-fi
 
 # Check for package-lock.json and fail if it exists
 if [ -f "package-lock.json" ]; then
@@ -95,4 +95,3 @@ fi
 echo "✅ Tests passed."
 
 echo "🚀 Pre-commit checks passed."
-
