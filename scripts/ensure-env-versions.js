@@ -31,7 +31,7 @@ function getPnpmVersionFromPackageManager(packageJson) {
  * 1. Reads `.nvmrc` as the source of truth for the Node.js version.
  * 2. Reads `package.json`.
  * 3. Enforces `packageManager` as the source of truth for the pnpm version.
- * 4. Synchronizes `engines.node` and `engines.pnpm` in `package.json` to match these sources.
+ * 4. Synchronizes `engines.node` in `package.json` to match these sources.
  * 5. Updates `DOCKER_BUILD_NODE_VERSION` and `DOCKER_BUILD_PNPM_VERSION` in the `.env` file.
  */
 async function main() {
@@ -79,13 +79,6 @@ async function main() {
     if (packageJson.engines.node !== nodeVersion) {
         console.log(`  - Updating \`engines.node\` to match .nvmrc version: "${nodeVersion}"`);
         packageJson.engines.node = nodeVersion;
-        packageJsonModified = true;
-    }
-
-    // Sync pnpm version
-    if (packageJson.engines.pnpm !== pnpmVersion) {
-        console.log(`  - Updating \`engines.pnpm\` to match \`packageManager\` version: "${pnpmVersion}"`);
-        packageJson.engines.pnpm = pnpmVersion;
         packageJsonModified = true;
     }
 
