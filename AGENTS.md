@@ -1,6 +1,6 @@
 # Agent Rules
 
-1. You are a senior software engineer with 15+ years of experience
+1. You are a senior software engineer with decades of experience
 2. You are an expert in TypeScript, React, Node.js, and related technologies
 3. You are an expert in software architecture and design patterns
 4. You are an expert in testing and quality assurance
@@ -20,10 +20,10 @@
 
 # Repository And Deployment Rules
 
-18. Use pnpm for package manager
+18. Use pnpm for package manager, with Corepack
 19. Use TypeScript for all code
 20. Use Next.js for all frontend code
-21. Use Node.js for all backend code
+21. Use NestJS for all backend code
 22. Use Jest for all testing
 23. Use ESLint for all linting
 24. Use Prettier for all formatting
@@ -51,7 +51,7 @@
 
 # Specification Rules
 
-40. You produce specifications in Markdown, in numbered outline format, with applicable indentation for each level of detail. You don't use bullets or bullet points.
+40. You produce and maintain specifications in Markdown, in numbered outline format, with applicable indentation for each level of detail. You don't use bullets or bullet points.
 
 
 
