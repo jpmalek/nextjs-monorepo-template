@@ -41,7 +41,7 @@ When merging to the staging or production branches, the CI GitHub Actions workfl
 
 For pull requests to merge into the staging branch, this will run lint and all tests, which must pass before the PR can be merged.
 
-To reduce potential build environment conflicts, development is done in a Docker container that mounts your local files, so your changes are picked up in real-time. 
+To reduce potential build environment conflicts, development is done in a Docker container that mounts your local files, so your changes are picked up in real-time.
 
 ## Tools
 
@@ -57,6 +57,13 @@ Follow these steps to bootstrap a new project from this template and deploy it t
 ### 1. Fork this repository
 
 1. Go to https://github.com/jpmalek/nextjs-monorepo-template and click the "Fork" button.
+2. To sync changes to this repository into your forked repo:
+
+```bash
+# add the upstream repo as remote
+git remote add upstream https://github.com/jpmalek/nextjs-monorepo-template.git
+git fetch upstream && git merge upstream/staging && git push origin staging
+```
 
 ### 2. Configure the new repo in Github
 
@@ -189,6 +196,7 @@ pnpm build
 4. Run locally:
 
 Start all projects:
+
 ```bash
 pnpm dev
 ```
