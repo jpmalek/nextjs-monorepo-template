@@ -85,9 +85,9 @@ git push origin --tags
 #### 4. To fetch and merge upstream changes in the future:
 
 ```bash
-# fetch from upstream, merge and push to origin
+# fetch from upstream, merge and create pull request.
 # script will exit if being run from the upstream repo.
-# it will not sync package files (e.g. package.json, pnpm-lock.yaml, etc) 
+# it will not sync package files (e.g. package.json, pnpm-lock.yaml, etc)
 ./scripts/sync-upstream.sh
 ```
 
