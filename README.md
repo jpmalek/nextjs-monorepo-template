@@ -52,29 +52,53 @@ When you want to:
 
 ## Getting Started
 
-Follow these steps to bootstrap a new project from this template and deploy it to Vercel.
+Follow these steps to bootstrap a new project from this template.
 
-### 1. Fork this repository
+### Create and configure the new repo locally
 
-1. Go to https://github.com/jpmalek/nextjs-monorepo-template and click the "Fork" button.
-2. To sync changes to this repository into your forked repo:
+#### 1. Clone the original repository into your own new directory:
 
 ```bash
-# add the upstream repo as remote
-git remote add upstream https://github.com/jpmalek/nextjs-monorepo-template.git
+# clone this repo into a new project directory
+git clone git@github.com:jpmalek/nextjs-monorepo-template.git new-project-name && cd new-project-name
+```
+
+#### 2. Create a new private repository in your GitHub organization:
+
+    •	Go to: https://github.com/organizations/YOUR_ORG/repositories/new
+    •	Name the repo (e.g., new-project)
+    •	Set visibility to Private
+    •	Leave it empty (no README, .gitignore, or license)
+
+#### 3. Reassign remotes:
+
+```bash
+# Rename the current remote (which points to the public repo):
+git remote rename origin upstream
+# Add your new private repo as origin:
+git remote add origin https://github.com/YOUR_ORG/new-project.git
+# Push your code to your private repo:
+git push -u origin --all
+git push origin --tags
+```
+
+#### 4. To fetch and merge upstream changes in the future:
+
+```bash
+# fetch from upstream, merge and push to origin
 git fetch upstream && git merge upstream/staging && git push origin staging
 ```
 
-### 2. Configure the new repo in Github
+### Configure the new repo in Github
 
-1. Repository settings -> 
-   General -> 
-    uncheck Template repository
-    disable all Features other than Preserve this repository
+1. Repository settings ->
+   General ->
+   uncheck Template repository
+   disable all Features other than Preserve this repository
    Advanced Security ->
-    CodeQL -> Set Up (use default).
-    Code Pilot Autofix and Code Pilot Autofix for third=party tools: on.
-    Dependabot -> enable all. Configured in .github/dependabot.yml
+   CodeQL -> Set Up (use default).
+   Code Pilot Autofix and Code Pilot Autofix for third=party tools: on.
+   Dependabot -> enable all. Configured in .github/dependabot.yml
 
 ### 3. Install Docker and Docker Compose
 
