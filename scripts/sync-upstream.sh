@@ -102,6 +102,6 @@ if [[ "$IS_GITHUB_ACTION" != "true" && -n "${GITHUB_TOKEN:-}" ]]; then
     echo "$RESPONSE"
   fi
 else   
-    echo "IS_GITHUB_ACTION: $IS_GITHUB_ACTION"
+    echo "Either running as a Github Action or no GITHUB_TOKEN is set."
     echo "skipped=false" >> "$GITHUB_OUTPUT"
 fi
