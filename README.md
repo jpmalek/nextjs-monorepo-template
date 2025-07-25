@@ -86,7 +86,9 @@ git push origin --tags
 
 ```bash
 # fetch from upstream, merge and push to origin
-git fetch upstream && git merge upstream/staging && git push origin staging
+# script will exit if being run from the upstream repo.
+# it will not sync package files (e.g. package.json, pnpm-lock.yaml, etc) 
+./scripts/sync-upstream.sh
 ```
 
 ### Configure the new repo in Github
