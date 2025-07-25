@@ -67,7 +67,14 @@ git fetch upstream && git merge upstream/staging && git push origin staging
 
 ### 2. Configure the new repo in Github
 
-1. TODO
+1. Repository settings -> 
+   General -> 
+    uncheck Template repository
+    disable all Features other than Preserve this repository
+   Advanced Security ->
+    CodeQL -> Set Up (use default).
+    Code Pilot Autofix and Code Pilot Autofix for third=party tools: on.
+    Dependabot -> enable all. Configured in .github/dependabot.yml
 
 ### 3. Install Docker and Docker Compose
 
