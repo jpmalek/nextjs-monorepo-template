@@ -82,7 +82,7 @@ git push -u origin --all
 git push origin --tags
 ```
 
-#### 4. To fetch and merge upstream changes in the future:
+#### 4. To fetch and merge upstream changes in the future, run sync-upstream.sh from the new repository's root:
 
 ```bash
 # fetch from upstream, merge and create pull request.
@@ -97,7 +97,7 @@ git push origin --tags
 2. Repository settings -> General -> disable all Features other than Preserve this repository
 3. Advanced Security -> CodeQL -> Set Up (use default).
 4. Advanced Security -> Code Pilot Autofix and Code Pilot Autofix for third=party tools: on.
-5. Advanced Security -> Dependabot -> enable all. Configured in .github/dependabot.yml
+5. Advanced Security -> Dependabot -> enable all. Also configured in .github/dependabot.yml
 
 ### 3. Install Docker and Docker Compose
 
