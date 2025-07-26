@@ -93,14 +93,11 @@ git push origin --tags
 
 ### Configure the new repo in Github
 
-1. Repository settings ->
-   General ->
-   uncheck Template repository
-   disable all Features other than Preserve this repository
-   Advanced Security ->
-   CodeQL -> Set Up (use default).
-   Code Pilot Autofix and Code Pilot Autofix for third=party tools: on.
-   Dependabot -> enable all. Configured in .github/dependabot.yml
+1. Repository settings -> General -> uncheck Template repository
+2. Repository settings -> General -> disable all Features other than Preserve this repository
+3. Advanced Security -> CodeQL -> Set Up (use default).
+4. Advanced Security -> Code Pilot Autofix and Code Pilot Autofix for third=party tools: on.
+5. Advanced Security -> Dependabot -> enable all. Configured in .github/dependabot.yml
 
 ### 3. Install Docker and Docker Compose
 
