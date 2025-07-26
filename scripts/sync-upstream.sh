@@ -42,7 +42,7 @@ git fetch "$UPSTREAM_REMOTE"
 
 echo "🌿 Creating temp branch: $TMP_BRANCH"
 git checkout -b "$TMP_BRANCH" "$WORKING_BRANCH"
-git merge --no-commit --no-ff "$UPSTREAM_REMOTE/$UPSTREAM_BRANCH"
+git merge --no-commit --no-ff -X theirs "$UPSTREAM_REMOTE/$UPSTREAM_BRANCH"
 
 # === CLEAN OUT EXCLUDED FILES ===
 echo "🧹 Force-reverting all excluded files..."
@@ -94,7 +94,7 @@ done
 echo "🔍 Staged files:"
 git diff --cached --name-only
 
-git commit -m "Merge $UPSTREAM_REMOTE/$UPSTREAM_BRANCH without excluded files"
+git commit -m "deps: merge $UPSTREAM_REMOTE/$UPSTREAM_BRANCH without excluded files"
 
 # === PUSH AND CREATE PULL REQUEST IF NOT IN CI ===
 if [[ "$IS_GITHUB_ACTION" != "true" ]]; then
