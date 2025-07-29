@@ -47,7 +47,7 @@
     "@typescript-eslint/parser": "^8.38.0",
     "@vitejs/plugin-react": "^4.7.0",
     "clsx": "^2.1.1",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.0.0",
     "eslint": "^9.32.0",
     "eslint-plugin-next": "^0.0.0",
     "execa": "^9.6.0",
