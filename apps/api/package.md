@@ -10,6 +10,6 @@
 - `check-types`: `tsc --noEmit`
 
 ## Dependencies
-- `next` (15.4.2): The React Framework
-- `react` (^19.1.0): React is a JavaScript library for building user interfaces.
-- `react-dom` (^19.1.0): React package for working with the DOM.
+- `next` (15.4.6): The React Framework
+- `react` (^19.1.1): React is a JavaScript library for building user interfaces.
+- `react-dom` (^19.1.1): React package for working with the DOM.
